@@ -1,0 +1,6 @@
+This part contains the following topics:
+What is the Attunity Stream CDC Solution
+Implementing a Change Data Capture Solution
+SQL-Based CDC Methodologies
+Event-Based CDC Methodologies
+Creating a CDC Solution with Attunity Studio
