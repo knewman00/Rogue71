@@ -51,7 +51,7 @@ DFSFLGX0 user exit is already used, the Attunity CDC solution cannot be
 implemented. The IMS/DB CDC agent supports the basic functionality for
 all CDC agents.
 
--Supported Versions
+### Supported Versions
 
 See the customer support section at www.attunity.com for the currently
 supported
@@ -66,9 +66,7 @@ agent. You can edit the properties using Attunity Studio. The IMS/DB CDC
 has the following types of properties:
 
 -   CDC Logger Properties
-
 -   CDC\$PARM Properties
-
 -   CDC Agent Properties
 
 ### CDC Logger Properties
@@ -77,7 +75,7 @@ Logger Name: the name of the MVS logstream used for the data capture.
 
 ### CDC\$PARM Properties
 
--CDC\$PARM is the name of DD card that defines a QSAM data set or PDS
+CDC\$PARM is the name of DD card that defines a QSAM data set or PDS
 member that
 
 contains the parameters for a DFSFLGX0 user exit. For an explanation on
@@ -166,29 +164,18 @@ operation This column lists the operations available for the CDC agent.
 
 The available operations are:
 
-INSERT
-
-DELETE
-
-UPDATE
-
-BEFOREIMAGE
-
-COMMIT
-
-ROLLBACK
+- INSERT
+- DELETE
+- UPDATE
+- BEFOREIMAGE
+- COMMIT
+- ROLLBACK
 
 transactionID The operation’s transaction ID.
 
 tableName The name of the table where the change was made.
 
-For INSERT, UPDATE, and BEFOREIMAGE operations, the
-
-owner name and then the table name are displayed.
-
-For COMMIT and ROLLBACK operations, this value is the same
-
-as the OPERATION value.
+For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.  For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.
 
 timestamp The date and time of the occurrence.
 
@@ -254,17 +241,12 @@ manual.
 The ATYLOGR program that is provided is used to manage MVS logstreams.
 It provides the following options:
 
-Delete all events
-
-Delete events to a specific timestamp
-
-Print events between two timestamps
-
-Print all events from the oldest to a selected timestamp
-
-Print all events from the newest to a selected timestamp
-
-Print all events
+- Delete all events
+- Delete events to a specific timestamp
+- Print events between two timestamps
+- Print all events from the oldest to a selected timestamp
+- Print all events from the newest to a selected timestamp
+- Print all events
 
 A sample job for managing MVS Logstreams called ATTUNITY.CDC.VSAMBTCH is
 supplied in the &lt;HLQ&gt;.USERLIB(RUNLOGR) member.
@@ -302,7 +284,7 @@ must update the IMS Environment as follows:
 
 3\. Restart the IMS Control Region.
 
-Adjust the DBD for the Relevant Databases
+4\. Adjust the DBD for the Relevant Databases
 
 You must do the following to adjust the DBD for the relevant databases:
 
@@ -334,37 +316,25 @@ the envlmsBatch Property. This is done in the Attunity Studio Design
 perspective.
 
 Before setting-up the IMS/DB CDC agent, make sure that:
-
-The IMS system and logstream are properly configured, as described in
+- The IMS system and logstream are properly configured, as described in
 Configuring the DFSFLGX0 Exit.
-
-The security measures are implemented, as described in Security.
-
-If you did not import the metadata while creating the CDC solution, see
+- The security measures are implemented, as described in Security.
+- If you did not import the metadata while creating the CDC solution, see
 Setting the envlmsBatch Property.
 
 ### Configuring the CDC Service
 
-For configuring the IMS/DB CDC service, carry out the following
-procedure.
+For configuring the IMS/DB CDC service, carry out the following procedure.
 
 ==========================
 
-Note: When you set up an IMS/DB CDC solution, you must know
+Note: When you set up an IMS/DB CDC solution, you must know what type of IMS data source you are using.
 
-what type of IMS data source you are using.
+For more information on using the IMS/DB DLI data source, see Defining the IMS/DB DLI Data Source Connection.
 
-For more information on using the IMS/DB DLI data source, see
+For more information on using the IMS/DB DBCTL data source, see, Defining the IMS/DB DBCTL Data Source Connection
 
-Defining the IMS/DB DLI Data Source Connection.
-
-For more information on using the IMS/DB DBCTL data source,
-
-see, Defining the IMS/DB DBCTL Data Source Connection
-
-For more information on using the IMS/DB DBDC data source,
-
-see Configuring the IMS/DB DBDC Data Source
+For more information on using the IMS/DB DBDC data source, see Configuring the IMS/DB DBDC Data Source
 
 ===========================
 
@@ -383,16 +353,13 @@ To configure the CDC Service
 > -----------------
 
 1.  Under CDC Logging, select the CDC logging level:
-
-> None
->
-> internalCalls
->
-> Info
->
-> Debug
->
-> API
+  |  ---------------|
+> |None           |
+> |internalCalls  |
+> |Info           |
+> |Debug          |
+> |API            |
+> |               |
 
 1.  Under Stream Position, select one of the following:
 
@@ -445,12 +412,12 @@ To set the envImsBatch property to False
 >
 > --------------------------------------
 
-1.  Right-click the adapter for the change data capture, and select Edit
+2.  Right-click the adapter for the change data capture, and select Edit
     Adapter.
 
-2.  Select the Properties tab from the adapter editor.
+3.  Select the Properties tab from the adapter editor.
 
-3.  Change the value for the envImsBatch property to False, as shown in
+4.  Change the value for the envImsBatch property to False, as shown in
     the following figure:
 
 > ----------------------------------------
@@ -459,7 +426,7 @@ To set the envImsBatch property to False
 >
 > ----------------------------------------
 
-1.  Click the Save button in the toolbar to save the change.
+5.  Click the Save button in the toolbar to save the change.
 
 ### Working with Metadata
 
@@ -498,53 +465,33 @@ HLQ.USERLIB (RUNLOGR)
 Where HLQ is the high-level qualifier where Attunity Server is
 installed, as shown in the following example:
 
+```
 //RUNLOGR JOB 'RR','TTT',MSGLEVEL=(1,1),CLASS=A,
-
 // MSGCLASS=X,NOTIFY=&SYSUID,REGION=8M
-
 //\*
-
 //LOGR EXEC PGM=ATYLOGR,
-
 //\*PARM=('/DEBUG ATTUNITY.IMS.DCAPDATA MAXLEN 1024 ',
-
 // PARM=('/NAME ATTUNITY.IMS.DCAPDATA MAXLEN 1024 ',
-
 // 'PRINT FROM 2005-03-13,02:13:57 TO 2007-10-27,02:38:23')
-
 //\* 'DELETE ALL')
-
 //\* 'DELETE TO 2004-10-28,02:17:11')
-
 //\* 'DELETE TO YOUNGEST')
-
 //\* 'PRINT FROM 2003-12-23,22:07:16 TO 2004-10-27,02:38:23')
-
 //\* 'PRINT FROM OLDEST TO 2007-10-27,02:38:23')
-
 //\* 'PRINT FROM 2004-10-27,02:51:57 TO YOUNGEST')
-
 //\* 'PRINT FROM OLDEST TO YOUNGEST')
-
 //STEPLIB DD DISP=SHR,DSN=TEST.AC4800.LOADCDCY
 
+```
 To use RUNLOGR, un-comment the option you want to use and submit the
 member. The following options are available:
 
 -   Delete all events.
-
-<!-- -->
-
 -   Delete events to a specific timestamp.
-
 -   Delete the newest events.
-
 -   Print all the events from the oldest to a specified timestamp.
-
 -   Print events between two timestamps.
-
 -   Print all the events from the newest to a specified timestamp.
-
 -   Print all the events.
 
 
