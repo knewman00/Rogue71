@@ -2,9 +2,7 @@ IMS/DB CDC on z/OS Platforms
 ============================
 
 This section describes the Attunity IMS/DB CDC agent. It includes the
-following
-
-topics:
+following topics:
 
 Overview
 
@@ -67,11 +65,11 @@ This section describes the configuration properties for the IMS/DB CDC
 agent. You can edit the properties using Attunity Studio. The IMS/DB CDC
 has the following types of properties:
 
-CDC Logger Properties
+-   CDC Logger Properties
 
-CDC\$PARM Properties
+-   CDC\$PARM Properties
 
-CDC Agent Properties
+-   CDC Agent Properties
 
 ### CDC Logger Properties
 
@@ -149,7 +147,8 @@ console. The default value is "/CHE."
 returnLastContextOnIdle: If true, the precise machine timestamp is set
 as the last context if no relevant updates have occurred.
 
-### Change Metadata
+Change Metadata
+---------------
 
 Changes are captured and maintained in a change table. The table
 contains the original table columns and CDC header columns. The header
@@ -243,16 +242,14 @@ Update the IMS Environment
 
 Adjust the DBD for the Relevant Databases
 
-MVS Logstream Creation
-----------------------
+### MVS Logstream Creation
 
 A sample job for the creation of the DASD MVS logstream called
 ATTUNITY.IMS.DCAPDATA is supplied in the &lt;HLQ&gt;.USERLIB(LOGCRIMS)
 member. For additional information, see the MVS Setting Up a Sysplex IBM
 manual.
 
-Managing the MVS Logstream
---------------------------
+### Managing the MVS Logstream
 
 The ATYLOGR program that is provided is used to manage MVS logstreams.
 It provides the following options:
@@ -431,8 +428,7 @@ To configure the CDC Service
 
 To set up the stream service, follow the instructions in Stream Service.
 
-Setting the envlmsBatch Property
---------------------------------
+### Setting the envlmsBatch Property
 
 If using IMS/DB DBDC or IMS/DB DBCTL data sources, then set the
 envImsBatch agent property to False to receive the latest changes to the
