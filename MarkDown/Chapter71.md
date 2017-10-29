@@ -320,8 +320,7 @@ field. In this case, the non-key fields for the child records are empty.
 Recompile DBD and the corresponding PSB and ACB objects, then restart
 the IMS Control Region.
 
-Setting-up the IMS/DB CDC Agent in Attunity Studio
-==================================================
+### Setting-up the IMS/DB CDC Agent in Attunity Studio
 
 You set-up the IMS/DB CDC agent by creating a CDC solution in the
 Attunity Studio CDC Solution Perspective. Follow the directions for
@@ -497,9 +496,7 @@ Use the IMS RUNLOGR utility which is available at:
 HLQ.USERLIB (RUNLOGR)
 
 Where HLQ is the high-level qualifier where Attunity Server is
-installed, as shown
-
-in the following example:
+installed, as shown in the following example:
 
 //RUNLOGR JOB 'RR','TTT',MSGLEVEL=(1,1),CLASS=A,
 
@@ -534,16 +531,20 @@ in the following example:
 To use RUNLOGR, un-comment the option you want to use and submit the
 member. The following options are available:
 
-– Delete all events.
+-   Delete all events.
 
-– Delete events to a specific timestamp.
+<!-- -->
 
-– Delete the newest events.
+-   Delete events to a specific timestamp.
 
-– Print events between two timestamps.
+-   Delete the newest events.
 
-– Print all the events from the oldest to a specified timestamp.
+-   Print all the events from the oldest to a specified timestamp.
 
-– Print all the events from the newest to a specified timestamp.
+-   Print events between two timestamps.
 
-– Print all the events.
+-   Print all the events from the newest to a specified timestamp.
+
+-   Print all the events.
+
+
