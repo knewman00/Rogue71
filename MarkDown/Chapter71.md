@@ -160,7 +160,6 @@ Table 71–1 Header Columns
 | tableName     |  The name of the table where the change was made.        |
 |               |  For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.                                |
 |               |   For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.                                                    |
-|            |                                                             |
 |timestamp   | The date and time of the occurrence.                        |
 
 
@@ -331,7 +330,7 @@ To configure the CDC Service
 >
 > -----------------
 
-1.  Under CDC Logging, select the CDC logging level:
+3.  Under CDC Logging, select the CDC logging level:
   |  ---------------|
 > |None           |
 > |internalCalls  |
@@ -340,7 +339,7 @@ To configure the CDC Service
 > |API            |
 > |               |
 
-1.  Under Stream Position, select one of the following:
+4.  Under Stream Position, select one of the following:
 
 > now: The stream processor begins to process requests and return events
 > from the time the stream position is set.
@@ -359,17 +358,17 @@ To configure the CDC Service
 >
 > Setting the Stream Position.
 
-1.  Under Change Capture Event Setting, select the Include a capture of
+5.  Under Change Capture Event Setting, select the Include a capture of
     before-image records check box if you want to include the before
     image information.
 
-2.  Under Logger name, enter the Logger Name and specify the name for
+6.  Under Logger name, enter the Logger Name and specify the name for
     the logger, as entered in the IMS system fix 80 file. This is
     configured when Configuring the DFSFLGX0 Exit. the default name for
     the logger is ATTUNITY.IMS.DCAPDATA. If you changed the name when
     configuring IMS, then enter the new name in this field.
 
-3.  Click Finish.
+7.  Click Finish.
 
 To set up the stream service, follow the instructions in Stream Service.
 
