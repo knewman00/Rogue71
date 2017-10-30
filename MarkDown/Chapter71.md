@@ -75,29 +75,17 @@ Logger Name: the name of the MVS logstream used for the data capture.
 
 ### CDC\$PARM Properties
 
-CDC\$PARM is the name of DD card that defines a QSAM data set or PDS
-member that
+member that contains the parameters for a DFSFLGX0 user exit. For an explanation on how to create this and its syntax see Creating and Configuring the CDC\$PARM Data Set.
 
-contains the parameters for a DFSFLGX0 user exit. For an explanation on
-how to create
+The following list describes the CDC\$PARM properties:
 
-this and its syntax see Creating and Configuring the CDC\$PARM Data Set.
-The
+BUFFER\_NUM: The logstream buffer number. The valid values are Default-30.
 
-following list describes the CDC\$PARM properties:
+BUFFER\_SIZE: The logstream buffer size. The valid values are Default-22550 bytes.
 
-BUFFER\_NUM: The logstream buffer number. The valid values are
-Default-30.
+DEBUG: If this is ON the debug information is printed using WTO. The default value is OFF.
 
-BUFFER\_SIZE: The logstream buffer size. The valid values are
-Default-22550 bytes.
-
-DEBUG: If this is ON the debug information is printed using WTO. The
-default value is OFF.
-
-LOGSTREAM: The logstream name. The default value for the DFSFLGX0 module
-is ATTUNITY.IMS.DCAPDATA. The default value for the DFSFLGXS module is
-ATTUNITY.IMS.DCAPSYST.
+LOGSTREAM: The logstream name. The default value for the DFSFLGX0 module is ATTUNITY.IMS.DCAPDATA. The default value for the DFSFLGXS module is ATTUNITY.IMS.DCAPSYST.
 
 DATASHARING: Set this to ON when IMS is used in a SYSPLEX environment.
 In this case, the MVS Logger defined using the LOGSTREAM property should
@@ -122,27 +110,27 @@ There are also additional properties that are common to all Attunity CDC
 agents. For a description of the common Attunity CDC agent properties,
 see Common CDC Agent Properties.
 
-envImsBatch: When this property is set to true (the default), the IMS/DB
+- envImsBatch: When this property is set to true (the default), the IMS/DB
 CHECKPOINT command will not be issued. Set this property to false if you
 want the last changes in the IMS/DB REGION to be written to the MVS
 Logger. In this case, the agent sends the IMS/DB CHECKPOINT command
 using MCS or by replying to an IMS/DB DFS996I message.
 
-checkPointFrequency: The frequency for issuing checkpoints. The default
+- checkPointFrequency: The frequency for issuing checkpoints. The default
 value is 60 (seconds). The smallest time frequency supported is 10
 seconds.
 
-consoleCheckPoint: Set to true to use and extended MCS console. If false
+- consoleCheckPoint: Set to true to use and extended MCS console. If false
 a reply to WTOR is used. The default value is true.
 
-imsJobName: IMS job name for the IMS/DB for which the WTOR reply to the
+- imsJobName: IMS job name for the IMS/DB for which the WTOR reply to the
 message DFS996I should be sent. This must be provided if be provided if
 more than one IMS/DB instances run on a Z/OS box.
 
-consoleCheckPointCommand: The command that should be sent to the MCS
+- consoleCheckPointCommand: The command that should be sent to the MCS
 console. The default value is "/CHE."
 
-returnLastContextOnIdle: If true, the precise machine timestamp is set
+- returnLastContextOnIdle: If true, the precise machine timestamp is set
 as the last context if no relevant updates have occurred.
 
 Change Metadata
@@ -156,28 +144,32 @@ columns are described in the following table:
 
 Table 71–1 Header Columns
 
-Column Name Description
+|Column Name |Description                                                   |
+|---------------|-----------------------------------------------------------|
+|context        | The record’s current context.                                |
+|operation      | This column lists the operations available for the CDC agent.|
+|               | The available operations are:                         |
+|               | - INSERT                                                 |
+|               | - DELETE                    |
+|               | - UPDATE                                                  |
+|               | - BEFOREIMAGE                                             |
+|               | - COMMIT                                                  |
+|               | - ROLLBACK                                                |
+|               |                                                           |
+| transactionID |  The operation’s transaction ID.                          |
+| tableName     |  The name of the table where the change was made.         |
+|               |  For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.                                 |
+|               |   For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.                                                     |
+|            |                                                              |
+|timestamp   | The date and time of the occurrence.                         |
+|            |                                                              |
+|            |                                                              |
+|------------|--------------------------------------------------------------|
 
-context The record’s current context.
 
-operation This column lists the operations available for the CDC agent.
 
-The available operations are:
 
-- INSERT
-- DELETE
-- UPDATE
-- BEFOREIMAGE
-- COMMIT
-- ROLLBACK
-
-transactionID The operation’s transaction ID.
-
-tableName The name of the table where the change was made.
-
-For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.  For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.
-
-timestamp The date and time of the occurrence.
+ 
 
 ---------------------------------------------
 
@@ -197,19 +189,18 @@ logstream with an authorization level of WRITE. To determine the proper
 security authorizations see the MVS Auth Assm Services Reference ENF-IXG
 IBM manual.
 
-----------------------------------------------------
+***
+>>Notes:
 
-Notes:
-
-To access a logstream in an application with a READ authorization level,
+>>To access a logstream in an application with a READ authorization level,
 set the READ access to RESOURCE(&lt;logstream name&gt;) in SAF class
 CLASS(LOGSTRM).
 
-To update a logstream in a program with a WRITE authorization level, set
+>>To update a logstream in a program with a WRITE authorization level, set
 the ALTER access to RESOURCE(&lt;logstream name&gt;) in SAF class
 CLASS(LOGSTRM).
+***
 
-----------------------------------------------------
 
 ### Data Types
 
