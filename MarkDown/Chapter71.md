@@ -144,34 +144,25 @@ columns are described in the following table:
 
 Table 71–1 Header Columns
 
-|Column Name |Description                                                   |
-|---------------|-----------------------------------------------------------|
-|context        | The record’s current context.                                |
+|Column Name |Description                                                  |
+|---------------|----------------------------------------------------------|
+|context        | The record’s current context.                            |
 |operation      | This column lists the operations available for the CDC agent.|
-|               | The available operations are:                         |
-|               | - INSERT                                                 |
-|               | - DELETE                    |
-|               | - UPDATE                                                  |
-|               | - BEFOREIMAGE                                             |
-|               | - COMMIT                                                  |
-|               | - ROLLBACK                                                |
-|               |                                                           |
-| transactionID |  The operation’s transaction ID.                          |
-| tableName     |  The name of the table where the change was made.         |
-|               |  For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.                                 |
-|               |   For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.                                                     |
-|            |                                                              |
-|timestamp   | The date and time of the occurrence.                         |
-|            |                                                              |
-|            |                                                              |
-|------------|--------------------------------------------------------------|
+|               | The available operations are:                            |
+|               | INSERT                                                   |
+|               | DELETE                                                   |
+|               | UPDATE                                                   |
+|               | BEFOREIMAGE                                              |
+|               | COMMIT                                                   |
+|               | ROLLBACK                                                 |
+|               |                                                          |
+| transactionID |  The operation’s transaction ID.                         |
+| tableName     |  The name of the table where the change was made.        |
+|               |  For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.                                |
+|               |   For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.                                                    |
+|            |                                                             |
+|timestamp   | The date and time of the occurrence.                        |
 
-
-
-
- 
-
----------------------------------------------
 
 Transaction Support
 -------------------
@@ -190,7 +181,7 @@ security authorizations see the MVS Auth Assm Services Reference ENF-IXG
 IBM manual.
 
 ***
->>Notes:
+>Notes:
 
 >>To access a logstream in an application with a READ authorization level,
 set the READ access to RESOURCE(&lt;logstream name&gt;) in SAF class
@@ -212,13 +203,10 @@ Configuring the DFSFLGX0 Exit
 
 To use the DFSFLGX0 exit, carry out the following procedures:
 
-MVS Logstream Creation
-
-Creating and Configuring the CDC\$PARM Data Set
-
-Update the IMS Environment
-
-Adjust the DBD for the Relevant Databases
+- MVS Logstream Creation
+- Creating and Configuring the CDC\$PARM Data Set
+- Update the IMS Environment
+- Adjust the DBD for the Relevant Databases
 
 ### MVS Logstream Creation
 
