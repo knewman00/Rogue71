@@ -1,0 +1,17 @@
+*target*
+*.jar
+*.war
+*.ear
+*.class
+*.iml
+*clover*
+*idea*
+XpedReference
+pdf
+MarkDownLivePreviewMessage
+
+
+.project
+.metadata
+.classpath
+.settings/
