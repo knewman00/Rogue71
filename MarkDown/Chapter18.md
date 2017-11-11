@@ -67,7 +67,11 @@ Installing System Components
 
 To use AIS for a Change Data Capture solution, install the following:
 
-AIS on the Back End: The back end of the system is where your data is stored. In an CDC solution, you consume changes from data sources such as Oracle, to create log with the change data information. This is where your CDC agent resides.  You must install the full (thick) version of AIS on the back end. For information on how to install AIS, see the Installation Guide for the platform you are working with. Data Source: The data source that you are working with is installed with AIS. For more information, see the installation guide for the platform you are working on. Attunity Studio: Attunity Studio can be installed on any Windows computer in your system. Attunity Studio provides a graphic interface for configuring the components in your system. For information on installing Attunity Studio, see the installation guide or the platform you are working on.
+AIS on the Back End: The back end of the system is where your data is stored. In an CDC solution, you consume changes from data sources such as Oracle, to create log with the change data information. This is where your CDC agent resides.  You must install the full (thick) version of AIS on the back end. For information on how to install AIS, see the Installation Guide for the platform you are working with.  
+
+Data Source: The data source that you are working with is installed with AIS. For more information, see the installation guide for the platform you are working on. Attunity Studio: Attunity Studio can be installed on any Windows computer in your system.  
+
+Attunity Studio provides a graphic interface for configuring the components in your system. For information on installing Attunity Studio, see the installation guide or the platform you are working on.
 
 See also CDC System Architecture.
 
