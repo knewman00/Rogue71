@@ -1,0 +1,48 @@
+Attunity® Integration Suite
+Installation Guide for Mainframe Systems
+Version 5.3.4
+January 2016
+
+
+======================================================================================================================================================
+
+Attunity Integration Suite Installation Guide for Mainframe Systems, Version 5.3.4
+Copyright © Januaryy 2016 Attunity Ltd. All rights reserved.
+Primary Authors: Andre Liss, Amitai Sela, David Goldman
+Contributors: Meera Srinivasan, Deanna Bradshaw, Yishai Hadas, Dror Harari, Arvind Jain, Pratibha
+Singhal, Mark Kennedy, Adeeb Massad, Bo Stern, Costi Zaboura
+The Programs (which include both the software and documentation) contain proprietary information; they
+are provided under a license agreement containing restrictions on use and disclosure and are also protected
+by copyright, patent, and other intellectual and industrial property laws. Reverse engineering, disassembly,
+or decompilation of the Programs, except to the extent required to obtain interoperability with other
+independently created software or as specified by law, is prohibited.
+The information contained in this document is subject to change without notice. If you find any problems in
+the documentation, please report them to us in writing. This document is not warranted to be error-free.
+Except as may be expressly permitted in your license agreement for these Programs, no part of these
+Programs may be reproduced or transmitted in any form or by any means, electronic or mechanical, for any
+purpose.
+If the Programs are delivered to the United States Government or anyone licensing or using the Programs on
+behalf of the United States Government, the following notice is applicable:
+U.S. GOVERNMENT RIGHTS Programs, software, databases, and related documentation and technical data
+delivered to U.S. Government customers are "commercial computer software" or "commercial technical data"
+pursuant to the applicable Federal Acquisition Regulation and agency-specific supplemental regulations. As
+such, use, duplication, disclosure, modification, and adaptation of the Programs, including documentation
+and technical data, shall be subject to the licensing restrictions set forth in the applicable Attunity license
+agreement, and, to the extent applicable, the additional rights set forth in FAR 52.227-19, Commercial
+Computer Software--Restricted Rights (June 1987).
+The Programs are not intended for use in any nuclear, aviation, mass transit, medical, or other inherently
+dangerous applications. It shall be the licensee's responsibility to take all appropriate fail-safe, backup,
+redundancy and other measures to ensure the safe use of such applications if the Programs are used for such
+purposes, and we disclaim liability for any damages caused by such use of the Programs.
+The Programs may provide links to Web sites and access to content, products, and services from third
+parties. Attunity is not responsible for the availability of, or any content provided on, third-party Web sites.
+You bear all risks associated with the use of such content. If you choose to purchase any products or services
+from a third party, the relationship is directly between you and the third party. Attunity is not responsible
+for: (a) the quality of third-party products or services; or (b) fulfilling any of the terms of the agreement with
+the third party, including delivery of products or services and warranty obligations related to purchased
+products or services. Attunity is not responsible for any loss or damage of any sort that you may incur from
+dealing with any third party.
+iii
+
+
+

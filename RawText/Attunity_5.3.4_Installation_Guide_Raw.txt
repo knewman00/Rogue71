@@ -1,0 +1,1406 @@
+Attunity® Integration Suite
+Installation Guide for Mainframe Systems
+Version 5.3.4
+January 2016
+Attunity Integration Suite Installation Guide for Mainframe Systems, Version 5.3.4
+Copyright © Januaryy 2016 Attunity Ltd. All rights reserved.
+Primary Authors: Andre Liss, Amitai Sela, David Goldman
+Contributors: Meera Srinivasan, Deanna Bradshaw, Yishai Hadas, Dror Harari, Arvind Jain, Pratibha
+Singhal, Mark Kennedy, Adeeb Massad, Bo Stern, Costi Zaboura
+The Programs (which include both the software and documentation) contain proprietary information; they
+are provided under a license agreement containing restrictions on use and disclosure and are also protected
+by copyright, patent, and other intellectual and industrial property laws. Reverse engineering, disassembly,
+or decompilation of the Programs, except to the extent required to obtain interoperability with other
+independently created software or as specified by law, is prohibited.
+The information contained in this document is subject to change without notice. If you find any problems in
+the documentation, please report them to us in writing. This document is not warranted to be error-free.
+Except as may be expressly permitted in your license agreement for these Programs, no part of these
+Programs may be reproduced or transmitted in any form or by any means, electronic or mechanical, for any
+purpose.
+If the Programs are delivered to the United States Government or anyone licensing or using the Programs on
+behalf of the United States Government, the following notice is applicable:
+U.S. GOVERNMENT RIGHTS Programs, software, databases, and related documentation and technical data
+delivered to U.S. Government customers are "commercial computer software" or "commercial technical data"
+pursuant to the applicable Federal Acquisition Regulation and agency-specific supplemental regulations. As
+such, use, duplication, disclosure, modification, and adaptation of the Programs, including documentation
+and technical data, shall be subject to the licensing restrictions set forth in the applicable Attunity license
+agreement, and, to the extent applicable, the additional rights set forth in FAR 52.227-19, Commercial
+Computer Software--Restricted Rights (June 1987).
+The Programs are not intended for use in any nuclear, aviation, mass transit, medical, or other inherently
+dangerous applications. It shall be the licensee's responsibility to take all appropriate fail-safe, backup,
+redundancy and other measures to ensure the safe use of such applications if the Programs are used for such
+purposes, and we disclaim liability for any damages caused by such use of the Programs.
+The Programs may provide links to Web sites and access to content, products, and services from third
+parties. Attunity is not responsible for the availability of, or any content provided on, third-party Web sites.
+You bear all risks associated with the use of such content. If you choose to purchase any products or services
+from a third party, the relationship is directly between you and the third party. Attunity is not responsible
+for: (a) the quality of third-party products or services; or (b) fulfilling any of the terms of the agreement with
+the third party, including delivery of products or services and warranty obligations related to purchased
+products or services. Attunity is not responsible for any loss or damage of any sort that you may incur from
+dealing with any third party.
+iii
+Contents
+1 Pre-installation and Upgrade Notes
+What Steps are Performed for an Installation or an Upgrade ......................................................... 1-1
+2 Installation and Configuration
+IBM z/OS Hardware and Software Requirements ............................................................................ 2-1
+Hardware Requirements................................................................................................................... 2-1
+Software Requirements ..................................................................................................................... 2-1
+Installing Attunity Server on an IBM z/OS Series Platform ........................................................... 2-2
+Installation Worksheet....................................................................................................................... 2-2
+Preinstallation Instructions............................................................................................................... 2-3
+Kit Installation Instructions .............................................................................................................. 2-3
+Transferring the Kit to the Dataset ........................................................................................... 2-4
+Installation Instructions..................................................................................................................... 2-4
+Data Source Configuration Instructions ......................................................................................... 2-7
+Postinstallation Instructions ............................................................................................................. 2-9
+Copy and Install Programs into CICS...................................................................................... 2-9
+Postinstallation Procedures .................................................................................................... 2-11
+Starting the Daemon................................................................................................................ 2-12
+Setting Up Attunity Server for Reentrancy .......................................................................... 2-12
+Updating an Existing Attunity Server Installation with CICS..................................................... 2-13
+3 Post-Installation Instructions
+Overview.................................................................................................................................................... 3-1
+General Post Installation Procedures ................................................................................................... 3-2
+Registering Attunity Server .............................................................................................................. 3-2
+Setting APF-Authorization and Started Tasks............................................................................... 3-2
+Setting 2-Phase Commit.................................................................................................................... 3-4
+TCP/IP................................................................................................................................................. 3-4
+Workspace for z/OS Server Environment File.............................................................................. 3-4
+Setting Up Security .................................................................................................................................. 3-5
+Attunity Server Stream and DB2 Security...................................................................................... 3-6
+Setting Up Attunity Server to Work with CICS ................................................................................. 3-6
+Setting Up Attunity Server to Work with IMS/TM........................................................................... 3-7
+Setting up Attunity Server to work with IMS/DB CDC.............................................................. 3-8
+Setting Up Attunity Server for Reentrancy......................................................................................... 3-8
+iv
+Setting Up Attunity Server to Access DB2 CLI .................................................................................. 3-8
+Setting Up Attunity Server to Update VSAM Data........................................................................... 3-9
+Setting Up Attunity Server to Access IMS/DB................................................................................... 3-9
+Setting Up IMS/DB Under IMS/TM ........................................................................................... 3-10
+Installing Attunity Server Natural/CICS Agent.............................................................................. 3-10
+Configuring the Agent ................................................................................................................... 3-11
+Installing the CICS Resource Definitions .................................................................................... 3-11
+Loading and Cataloging the Natural Programs ......................................................................... 3-12
+Making the Agent Load Modules Available to the CICS Region ............................................ 3-12
+Verifying the Agent Installation is Successful ............................................................................ 3-13
+Verifying the Installation is Successful from a Client................................................................ 3-14
+Setting the Language ............................................................................................................................ 3-15
+Index
+Pre-installation and Upgrade Notes 1-1
+1
+Pre-installation and Upgrade Notes
+This section includes Attunity Server pre-installation requirements for z/OS and
+upgrade notes.
+What Steps are Performed for an Installation or an Upgrade
+Before starting the installation, make sure that you have the following information
+available, which is prompted for during the installation:
+n The output class for the installation output if you don’t want to use the default.
+n To enable access to DB2:
+n The DB2 database high-level qualifier.
+n The name of the DB2 subsystem identifier name.
+n To enable access to Adabas:
+n The Adabas SVC number (the default is 249).
+n The Adabas database number.
+n The Adabas load library location (the default is ADA622.LOAD)
+1-2 Attunity Integration Suite Installation Guide for Mainframe Systems
+Installation and Configuration 2-1
+2
+Installation and Configuration
+This section describes how to install to configure Attunity Server using Attunity
+Studio.
+This section includes the following topics:
+n IBM z/OS Hardware and Software Requirements
+n Installing Attunity Server on an IBM z/OS Series Platform
+n Updating an Existing Attunity Server Installation with CICS
+IBM z/OS Hardware and Software Requirements
+This section describes the following requirements for installing Attunity Server on an
+IBM z/OS platform:
+n Hardware Requirements
+n Software Requirements
+Hardware Requirements
+The following table summarizes the hardware requirements for Attunity Server:
+Software Requirements
+The following table summarizes the software requirements for Attunity Server:
+Hardware Component Requirements
+Processor An IBM zSeries computer
+Disk Space (3390 disk) 150 cylinders
+Software Component Requirements
+Operating System See the customer support section at www.attunity.com
+for the currently supported operating systems and
+versions.
+TCP/IP TCP/IP needs to be active on the system.
+C Runtime Library The C runtime library has all the standard C runtime programs.
+2-2 Attunity Integration Suite Installation Guide for Mainframe Systems
+Installing Attunity Server on an IBM z/OS Series Platform
+This section explains how to install Attunity Server. This section includes the
+following:
+n Installation Worksheet
+n Preinstallation Instructions
+n Kit Installation Instructions
+n Installation Instructions
+n Data Source Configuration Instructions
+n Postinstallation Instructions
+Installation Worksheet
+Verify that you have all the information detailed in the following installation
+worksheets, so you can refer to it during the configuration process.
+Note: If you have an AIS back-end adapter already installed on
+the IBM z/OS platform, then follow the instructions described in
+Updating an Existing Attunity Server Installation with CICS on
+page 2-13.
+Table 2–1 Preinstallation Information
+Topic Required Information Default Comment
+General Operating system - See the customer support section at
+www.attunity.com for the currently
+supported operating systems and
+versions.
+- Disk space - 150 cylinders
+- Installation high-level
+qualifier
+- -
+- Volume - -
+- Unit 3390 SMS only: unit where SMS resides.
+- Output class A -
+- JCL job card - An optional card (up to 6 lines) to replace
+the prefix job (entered as it will appear in
+the job)
+- ISPF load library name ISP.SISPLOAD -
+CICS CICS EXCI load library name CICS.CICS.SDFHEXCI -
+Table 2–2 Required Permissions
+Permission
+Permission to define an APF-authorized library
+Permission to write to an active proclib, such as user.proclib
+Installation and Configuration 2-3
+Preinstallation Instructions
+Before starting the installation, ensure that the following information is available:
+n The output class for the installation output if you do not want to use the default
+value, which is A.
+Before starting the installation, ensure that you have the following permissions:
+n Permission to define an APF-authorized library.
+n Permission to write to an active proclib, such as user.proclib.
+n Permission to read the CICS EXCI library.
+n Permission to update the security manager, such as RACF
+Attunity Server for the IBM z/OS platform is contained in the following datasets:
+n <HLQ>.TRANSMIT.KIT
+n <HLQ>.TRANSMIT.LOAD
+Kit Installation Instructions
+Perform the following on the mainframe:
+1. Run the following command:
+Permission to read the CICS EXCI library
+Permission to update the security manager, such as RACF
+Optionally, permission to specify an output class for Attunity Server output
+Table 2–3 Installation Checklist
+Step Comment/Outputs
+tso profile noprefix Ensures that the user name is not used as part of
+the dataset name allocated in the next steps
+Allocate dataset: {HLQ}.TRANSMIT.KIT 130 tracks (3390), format=FB, record length=80,
+block size=3120
+Allocate dataset: {HLQ}.TRANSMIT.LOAD 600 tracks (3390), format=FB, record length=80,
+block size=3120
+FTP files to z/OS FTP using binary mode
+RECEIVE INDSNAME('{HLQ}.TRANSMIT.KIT') -
+da('{HLQ}.TRANSMIT.LIB') UNIT(unit) VOLUME(volume) -
+EX {HLQ}.TRANSMIT.LIB(PREPARE) Successful MAXCC is 0, 4 or 8
+BUILDKIT.SRC, BUILDKIT.LOAD, and
+BUILDKIT.GENDEMO created
+EX {HLQ}.BUILDKIT.SRC(NAVINST) Successful MAXCC is 0 or 4
+Note: It is recommended to specify an output class with HOLD
+status to prevent the loss of Attunity Server log information.
+Table 2–2 (Cont.) Required Permissions
+Permission
+2-4 Attunity Integration Suite Installation Guide for Mainframe Systems
+tso profile noprefix
+The user name will not be used as part of the dataset name. On some systems this
+is the default.
+2. If HLQ does not exist, you might want to define an alias for it now.
+3. Allocate datasets with the following space for each of these files:
+n [HLQ].TRANSMIT.KIT = 130 tracks (3390 disk)
+n [HLQ].TRANSMIT.LOAD = 600 tracks (3390 disk)
+For each dataset: RECFM=FB, LRECL=80 and DSORG=PS. The block size is 3120.
+Transferring the Kit to the Dataset
+You need to copy the contents of the kit to the z/OS datasets just allocated.
+Perform the following steps to copy the AIS installation kit contents to the mainframe:
+1. Extract the compressed file to a folder on your computer.
+2. Perform the transfer using one of the following methods:
+Method 1:
+If you have a standard procedure for file transfer, use it to perform a binary
+transfer of the following files:
+n ac5340.transmit.kit to '[HLQ].transmit.kit'
+n ac5340.transmit.load to '[HLQ].transmit.load'
+Method 2:
+a. Open a Windows command prompt.
+b. Type FTP followed by a space and the name of the z/OS to which you wish to
+connect. This creates an FTP connection to the mainframe machine. Enter your
+z/OS userid and password when prompted for them.
+c. Type bin to indicate a binary transfer.
+d. Enter the following command to transfer the data from the .KIT file to z/OS:
+put ac5340.transmit.kit '[HLQ].transmit.kit' [replace]
+Where:
+– ac5340.transmit.kit is the name of your installation file on Windows
+– [replace] overwrites the old installation dataset on z/OS (should one
+exist)
+e. Enter the following command to transfer the data from the .LOAD file o z/OS:
+put ac5340.transmit.load '[HLQ].transmit.load' [replace]
+f. Exit FTP by typing quit.
+Installation Instructions
+Perform the following steps to install Attunity Server:
+1. Run the following command in the Data Set List screen.
+TSO RECEIVE INDSNAME('<HLQ>.TRANSMIT.KIT')
+Installation and Configuration 2-5
+Where <HLQ> represents the high-level qualifier that you assign for the Attunity
+Server installation. Assign the high-level qualifier you used in the preinstallation
+procedure.
+2. Enter the following when prompted for the restore parameters:
+da('<HLQ>.TRANSMIT.LIB') [UNIT(unit) VOLUME(volume)]
+This extracts the <HLQ>.TRANSMIT.LIB library from the <HLQ>.TRANSMIT.KIT
+kit to the specified unit and volume. If a unit and volume are not specified then
+the library is extracted to the default unit and volume.
+3. Enter the following TSO command:
+TSO EX '<HLQ>.TRANSMIT.LIB(PREPARE)'
+Follow the instructions in the Response column in Table 2–4 for each entry in the
+Screen column.
+Note: You can use more than one high-level qualifier, such as
+ACME.DEV.<HLQ>, with the following conditions:
+n The total length must be less than or equal to twenty characters.
+n The words transmit and buildkit cannot be used as high-level
+qualifiers.
+Table 2–4 Installation Prepare Job Prompts and Responses
+Screen Response
+DO YOU WANT TO USE SMS MANAGED
+STORAGE FOR THIS INSTALLATION Y/N [N] :
+If you want to manage the storage using SMS, then answer
+Y, otherwise answer N.
+ENTER THE STORCLASS FOR INSTALLATION
+TEMP DATASETS [ ] :
+This prompt is displayed only if SMS is used to manage the
+installation (you answered Y to the first prompt).
+Enter the storage class
+ENTER THE UNIT NAME FOR INSTALLATION
+TEMP DATASETS [3390] :
+If a storage class is not specified, then enter the unit name
+for temporary datasets used during the installation
+procedure
+ENTER THE VOLUME NAME FOR
+INSTALLATION TEMP DATASETS :
+This prompt is displayed only if SMS is not used to manage
+the installation (you answered N to the first prompt).
+The volume name for temporary datasets used during the
+installation procedure
+ENTER THE OUTPUT CLASS FOR
+INSTALLATION OUTPUT [A] :
+Enter the output class only if you do not want the default
+class used (the default is A)
+2-6 Attunity Integration Suite Installation Guide for Mainframe Systems
+4. Verify that all steps on the INSTJO job ended with return code 0.
+5. Enter the following TSO command:
+TSO EX '<HLQ>.BUILDKIT.SRC(NAVINST)'
+Follow the instructions in the Response column in Table 2–5 for each entry in the
+Screen column.
+DO YOU WANT TO USE THE DEFAULT JOB
+CARD Y/N [Y]
+A job card is displayed. If you want to use a replacement
+card, then it must be entered as it will appear in the job. You
+can enter up to six lines. Enter a blank card to end input.
+If you do not enter a card, then the Attunity Server default
+card is used.
+DO YOU WANT TO PERFORM A MANUAL
+(M) OR AUTOMATIC (A) INSTALLATION [A] :
+If you want to review the JCL used to install Attunity
+Server, before it is submitted, then respond M for a manual
+installation.
+PLEASE REVIEW AND SUBMIT FOR
+EXECUTION THE
+HLQ.TRANSMIT.LIB(INSTJO)
+This prompt is displayed only if a manual installation is
+requested (you answered M to the previous prompt).
+Table 2–5 Installation Prompts and Responses
+Screen Response
+DO YOU WANT TO USE SMS MANAGED
+STORAGE FOR THIS INSTALLATION Y/N [N]:
+If you want to manage the storage using SMS, then answer
+Y, otherwise answer N.
+THE SOFTWARE WILL BE INSTALLED UNDER
+THE HIGH LEVEL QUALIFIER THAT YOU
+WILL CHOOSE.
+ENTER THE HIGH LEVEL QUALIFIER
+["QUALIFIER"]:
+The high-level qualifier for the installation (referred to as
+INSTROOT throughout this guide)
+You can use more than one high-level qualifier (such as
+ACME.DEV.VA10). The total length must be less than or
+equal to twenty characters. The qualifiers can be the same
+as the ones used for the installation (step 1).
+The words transmit and buildkit cannot be used as
+high-level qualifiers.
+ENTER THE STORCLASS FOR TEMP DATASETS
+['STORCLASS']:
+This prompt is displayed only if SMS is used to manage the
+installation (you answered Y to the first prompt).
+Enter the storage class
+ENTER THE UNIT NAME FOR INSTALLATION
+TEMP DATASETS [3390] :
+The unit name for temporary datasets used during the
+installation procedure.
+ENTER THE VOLUME NAME FOR
+INSTALLATION TEMP DATASETS:
+This prompt is displayed only if SMS is not used to manage
+the installation (you answered N to the first prompt).
+The volume name for temporary datasets used during the
+installation procedure
+PLEASE CONFIRM (YES/NO/QUIT) [YES]: Confirm the entered details
+ENTER THE OUTPUT CLASS FOR
+INSTALLATION OUTPUT [A]:
+Enter the output class for Attunity Server output. Assigning
+a device which is set on HOLD prevents the loss of log
+information when the Attunity Server started tasks finish
+(the default is A).
+Table 2–4 (Cont.) Installation Prepare Job Prompts and Responses
+Screen Response
+Installation and Configuration 2-7
+The installation is completed. All JCL jobs and REXX procedures are written to the
+INSTROOT.USERLIB library. INSTROOT is the high-level qualifier for the installation.
+Data Source Configuration Instructions
+Enter the following TSO command:
+TSO EX '<HLQ>.BUILDKIT.SRC(CUST)'
+Follow the instructions in the Response column in Table 2–6 for each entry in the
+Screen column.
+ADDING AND UPDATING ATTUNITY
+CONNECT FOR CICS CONFIGURATION ON
+THIS MACHINE, FROM A REMOTE ATTUNITY
+ADMINISTRATION CONSOLE, CAN ONLY BE
+DONE BY SOMEONE DEFINED AS AN
+ADMINISTRATOR FOR ATTUNITY CONNECT
+ON THIS MACHINE.
+ENTER A VALID USER NAME FOR AN
+ATTUNITY CONNECT ADMINISTRATOR
+[ALL]:
+In order to manage Attunity Server on this computer from
+Attunity Studio, you need to enter a user account of a user
+who will have administrative authorization, or press Enter
+to enable any user to administer Attunity Server on this
+computer. The administrative rights can be changed from
+within Attunity Studio after the installation.
+DO YOU WANT TO USE THE DEFAULT JOB
+CARD Y/N [Y]
+A job card is displayed. If you want to use a replacement
+card, then it must be entered as it will appear in the job. You
+can enter up to six lines. Enter a blank card to end input.
+If you do not enter a card, then the Attunity Server default
+card is used.
+DO YOU WANT TO PERFORM A MANUAL (M)
+OR AUTOMATIC (A) INSTALLATION [A] :
+If you want to review the JCL used to install Attunity
+Server, before it is submitted, then respond M for a manual
+installation.
+PLEASE REVIEW AND SUBMIT FOR
+EXECUTION THE DSN1 (INSTJBOR)
+This prompt is displayed only if a manual installation is
+requested (you answered M to the previous prompt).
+DSN1 is the dataset name where INSTJBOR is located.
+Table 2–6 Installation Prompts and Responses
+Screen Response
+DO YOU WANT ATTUNITY SERVER TO WORK
+WITH DB2
+If you want to use DB2, then answer Y, otherwise answer N
+ENTER THE DB2 HLQ This is displayed only if you answered Y to using DB2. Enter
+the HLQ where DB2 is installed.
+ENTER THE DB2 SUBSYSTEM NAME Enter the DB2 subsystem.
+THE DATABASE DB2 RESIDES ON THIS
+MACHINE
+THE DB2 SUBSYSTEM NAME IS :
+PLEASE CONFIRM (YES/NO/QUIT) :YES: :
+This is a summary of the DB2 questions. Check the
+summary to be sure all is correct. You can select:
+n Yes, to use the DB2 database as configured
+n No, to not use the DB2 database
+n Quit, to leave the CUST process
+DO YOU WANT ATTUNITY SERVER TO WORK
+WITH ADABAS
+If you want to use Adabas, then answer Y, otherwise answer
+N.
+ENTER THE ADABAS SVC NUMBER This is displayed only if you answered Y to using Adabas.
+Enter the Adabas SVC number for Adabas on your system.
+Table 2–5 (Cont.) Installation Prompts and Responses
+Screen Response
+2-8 Attunity Integration Suite Installation Guide for Mainframe Systems
+ENTER THE ADABAS LOAD LIBRARY NAME Enter the Adabas Load Library name for Adabas on your
+system.
+YOUR ADABAS SVC IS:
+THE ADABAS LOAD LIBRARY NAME IS:
+PLEASE CONFIRM (YES/NO/QUIT)
+This is a summary of the Adabas questions. Check the
+summary to be sure all is correct. You can select:
+n Yes, to use the Adabas database as configured
+n No, to not use the Adabas database
+n Quit, to leave the CUST process
+DO YOU WANT ATTUNITY SERVER TO WORK
+WITH IMS
+If you want the server to work with IMS, then answer Y,
+otherwise answer N.
+ENTER IMS ID [IMS1]: Enter the IMS subsystem ID
+ENTER DBD LIBRARY NAME Enter the IMS DBD Library name for IMS on your system
+ENTER PSB LIBRARY NAME Enter the IMS PSB Library name for IMS on your system
+ENTER RES LIBRARY NAME Enter the IMS RES Library name for IMS on your system
+ENTER PROC LIBRARY NAME Enter the IMS PROC Library name for IMS on your system
+ENTER PGM LIBRARY NAME Enter the IMS PGM Library name for IMS on your system.
+ENTER YOUR PSB NAME Enter the name of the PSB file with the name of your IMS
+database.
+YOUR DBDLIB IS:
+YOUR PSBLIB IS:
+YOUR RESLIB IS:
+YOUR PROCLIB IS:
+YOUR PGMLIB IS:
+YOUR PSBNAME IS:
+PLEASE CONFIRM (YES/NO/QUIT) :YES: :
+This is a summary of the IMS questions. Check the summary
+to be sure all is correct. You can select:
+n Yes, to use the IMS database as configured
+n No, to not use the IMS database
+n Quit, to leave the CUST process
+DO YOU WANT ATTUNITY SERVER TO WORK
+WITH IMS/DB UNDER CICS
+f you want the server to work with IMS/DB under CICS,
+then answer Y, otherwise answer N.
+ENTER THE CICS EXCI LOAD LIBRARY NAME
+[CICSTS13.CICS.SDFHEXCI]:
+Enter the CICS EXCI load library name only if you do not
+want the default
+PLEASE CONFIRM (YES/NO/QUIT) [YES]: Confirm the entered details
+DO YOU WANT ATTUNITY SERVER TO WORK
+WITH CICS APP ADAPTER
+f you want the server to work with the CICS APP
+ADAPTER, then answer Y, otherwise answer N.
+ENTER THE ISPF LOAD LIBRARY NAME
+[ISP.SISPLOAD] :
+Enter the ISPF load library name only if you do not want the
+default
+PLEASE CONFIRM (YES/NO/QUIT) [YES]: Confirm the entered details
+Table 2–6 (Cont.) Installation Prompts and Responses
+Screen Response
+Installation and Configuration 2-9
+Postinstallation Instructions
+The following postinstallation tasks must be done to work with Attunity Server:
+n Copy and Install Programs into CICS
+n Postinstallation Procedures
+n Starting the Daemon
+n Setting Up Attunity Server for Reentrancy
+Copy and Install Programs into CICS
+You must copy and install the some supporting programs if you are using a CICS
+session. The following table describes the programs and when you must use them.
+The following describes the steps necessary to copy and install these programs under
+CICS.
+1. In the Data Set List Utility screen, type the name of the <HLQ> on the Dsname
+Level line. This will return a list of the files.
+2. In the Command column next to the <HLQ>.LOAD, type M.
+ENTER THE OUTPUT CLASS FOR
+INSTALLATION OUTPUT [A]:
+Enter the output class for Attunity Server output. Assigning
+a device which is set on HOLD prevents the loss of log
+information when the Attunity Server started tasks finish
+(the default is A).
+DO YOU WANT TO USE THE DEFAULT JOB
+CARD Y/N [Y]
+A job card is displayed. If you want to use a replacement
+card, then it must be entered as it will appear in the job. You
+can enter up to six lines. Enter a blank card to end input.
+If you do not enter a card, then the Attunity Server default
+card is used.
+DO YOU WANT TO PERFORM A MANUAL
+(M) OR AUTOMATIC (A) CUSTOMIZATION :A:
+It is recommended that you choose automatic, which is the
+default.
+Table 2–7 CICS Programs
+Program When to use it
+ATYGTEVT Use this program when working with CICS. This is the CICS
+queue.
+ATTCICSD Use this program when working with CICS.
+ATTHRDPL Use this program when working with CICS, if you are using
+connection pooling.
+ATTCALL Use this program when working with CICS, if you are using
+connection pooling.
+ATTCNTRL Use this program when working with CICS, if you are using
+connection pooling.
+ATYDBCTL Use this program if you are using the IMS CDC agent.
+TRANS3GL Use this program if you are using the 3GL interface. This is an
+sample program.
+UPDTRNS Use this program if you are using the VSAM CDC agent.
+Table 2–6 (Cont.) Installation Prompts and Responses
+Screen Response
+2-10 Attunity Integration Suite Installation Guide for Mainframe Systems
+3. Type C next to the programs that you wish to use. The list of available programs is
+in the CICS Programs table.
+4. Hit the <enter> key and specify the name of the target CICS load library (One
+concatenated to the DFHRPL DD statement).
+5. Log on to CICS.
+6. Enter the following transaction:
+CEDA INS PROG(<PROG NAME>) G(ATY)
+The <PROG NAME> is on one of the programs from the CICS Programs table. Run this
+for each of the programs you are using.
+Installation and Configuration 2-11
+Postinstallation Procedures
+After installation, the following steps are required:
+n Copy ATTDAEMN from <HLQ>.USERLIB to a system procedure library (such as
+SYS1.PROCLIB) and edit the following line as required:
+// PARM='-B -L <ip_address>:<port> START IRPCDINI'
+Where ip_address is ip address of the computer, 2551 is the default port for
+starting the daemon and IRPCDINI is the default daemon configuration.
+n Copy <HLQ>.USERLIB (ATTSRVR) to a system procedure library (such as
+SYS1.PROCLIB). If you are using IMS, copy NVIMSSRV and NVBMPSRV as well.
+If you decide to change the name of the ATTSRVR member when you move it to a
+general high-level qualifier, then change the name specified in the
+StartupScript parameter in the daemon configuration to the new name:
+n Run <HLQ>.USERLIB(NAVCMD) and enter EDIT DAEMON IRPCDINI at the
+prompt.
+n Change the startupScript parameter from ATTSRVR to the new name for the
+server:
+<Workspace name="Navigator"
+startupScript="NEW_NAME"
+serverMode="reusable"
+... />
+n Exit and save the changes.
+n Define the LOADAUT library as an APF-authorized library.
+If RRS is going to be used, define LOAD library as APF-authorized.
+Ask your z/OS system programmer to add <HLQ>.LOADAUT as an
+APF-authorized library.
+n Using your security manager (such as RACF), assign a user to the following
+started tasks: ATTDAEMN, ATTSRVR and NVIMSSRV (if you are using IMS/DLI).
+The user should have the following authority:
+n Permission to issue master console commands.
+n Permission to start ATTSRVR.
+n Access to an OMVS segment.
+n ALTER authority on datasets under INSTROOT to access to read, write,
+allocate, and delete datasets under INSTROOT.
+n The input during the installation procedure is written to
+nnn.BUILDKIT.SRC(PARS). You can use this file to provide the same inputs if
+you rerun the installation, where nnn is the high-level qualifier you assign for the
+installation.
+n For information about specifying Attunity Server as the service using port 2551 in
+the TCP/IP configuration parameters, refer to z/OS Communications Server IP
+Configuration Reference.
+2-12 Attunity Integration Suite Installation Guide for Mainframe Systems
+Starting the Daemon
+Start the daemon by issuing the following z/OS command:
+S ATTDAEMN
+If you have changed the name of the started task, use the new name instead of
+ATTDAEM.
+To submit the daemon as a job, uncomment the first two lines of the ATTDAEMN JCL,
+change the PARM line as described earlier, and run the job using the subcommand.
+The ATTDAEMN JCL is similar to the following:
+//*ATTDAEMN JOB 'RR','TTT',MSGLEVEL=(1,1),CLASS=A,
+//* MSGCLASS=A,NOTIFY=&SYSUID,REGION=8M
+//STEP1 EXEC PGM=IRPCD,
+// PARM='-B START IRPCDINI'
+//* PARM='-B -L :8883 START'
+//STEPLIB DD DSN=INSTROOT.LOADAUT,DISP=SHR
+//SYSPRINT DD SYSOUT=A
+//GBLPARMS DD DSN=INSTROOT.DEF.GBLPARMS,DISP=SHR
+// EXEC PGM=IRPCD,COND=((1,EQ,STEP1),(2,EQ,STEP1)),
+// PARM='-KATTDAEMN START ''INSTROOT.DEF.IRPCDINI'''
+//STEPLIB DD DSN=INSTROOT.LOADAUT,DISP=SHR
+//SYSPRINT DD SYSOUT=A
+//GBLPARMS DD DSN=INSTROOT.DEF.GBLPARMS,DISP=SHR
+//SYSDUMP DD DUMMY
+Setting Up Attunity Server for Reentrancy
+All Attunity Server load modules are reentrant and therefore eligible for LPA. Placing
+these modules in the LPA improves response time and saves virtual memory. It is
+recommended to place INSTROOT.LOA in the LPA concatenation. Ask your z/OS
+programmer to do this.
+Note: When the language is set to JPN, KOR, SPA, or SCHI, the
+daemon may stop responding. To be sure that the daemon responds
+add HLQ.LOAD to the STEPLIB. To do this, add:
+DD DSN=HLQ.LOAD
+to the end of the following line:
+//STEPLIB DD DSN=INSTROOT.LOADAUT,DISP=SHR
+Note: If you intend using impersonation, so that you can run in a
+security context that is different than the context of the process that
+owns the server, then do the following:
+n Place the INSTROOT.LOAD(ATYSVCW) member in an
+APF-authorized library outside the LPA.
+n Change the ATTSRVR member (located in the active proclib), by
+adding the following to the STEPLIB list:
+// DD DSN=apf_library,DISP=SHR
+Where apf_library is the APF-authorized library outside the
+LPA where the ATYSCVW member was moved.
+Installation and Configuration 2-13
+Updating an Existing Attunity Server Installation with CICS
+Verify that you have all the information detailed in the following installation
+worksheets, so you can refer to it during the configuration process.
+In the nnn.BUILDKIT.SRC library, run the CUST member, as shown:
+ex CUST
+Follow the instructions in the Response column in Table 2–10 for each entry in the
+Screen column.
+Table 2–8 Preinstallation Information
+Topic Required Information Default Comment
+CICS CICS EXCI load library name CICS.CICS.SDFHEXCL -
+Table 2–9 Required Permissions
+Permission
+Permission to read the CICS EXCI library
+Table 2–10 CICS Adapter Installation Prompts and Responses
+Screen Response
+DO YOU WANT ATTUNITY CONNECT FOR
+LEGACY ADAPTER TO WORK WITH IMS/DB
+(YES/NO) [YES] :
+Answer YES to this prompt if you have AIS for IMS/DB
+already installed.
+ENTER DBD LIBRARY NAME [IMS.DBDLIB] : If you responded YES to working with IMS/DB, then enter
+the library where database definition (DBD) files are located.
+ENTER PSB LIBRARY NAME [IMS.PSBLIB] : If you responded YES to working with IMS/DB, then enter
+the library where Program Specification Blocks (PSBs) are
+located.
+ENTER YOUR PSB NAME [HOSPPSB] : If you responded YES to working with IMS/DB, then enter
+the name of the PSB file to use.
+PLEASE CONFIRM (YES/NO/QUIT) [YES] : If you responded YES to working with IMS/DB, then
+confirm the entered details.
+DO YOU WANT ATTUNITY CONNECT FOR
+LEGACY ADAPTER TO WORK WITH IMS/DB
+UNDER CICS (YES/NO) [NO] :
+If you want to access IMS/DB data under CICS, using AIS
+adapter for IMS/DB, then respond YES.
+ENTER THE CICS EXCI LOAD LIBRARY NAME
+[CICSTS13.CICS.SDFHEXCI] :
+If you responded YES to working with IMS/DB under CICS,
+then enter the CICS EXCI load library name only if you do
+not want the default.
+PLEASE CONFIRM (YES/NO/QUIT) [YES] : If you responded YES to working with IMS/DB under CICS,
+then confirm the entered details.
+DO YOU WANT ATTUNITY CONNECT FOR
+LEGACY ADAPTER TO WORK WITH CICS
+APP ADAPTER (YES/NO) [YES] :
+Answer YES to this prompt
+ENTER THE CICS EXCI LOAD LIBRARY NAME
+[CICSTS13.CICS.SDFHEXCI] :
+Enter the CICS EXCI load library name only if you do not
+want the default.
+PLEASE CONFIRM (YES/NO/QUIT) [YES] : Confirm the entered details
+2-14 Attunity Integration Suite Installation Guide for Mainframe Systems
+The installation is completed. All JCL jobs and REXX procedures are written to the
+INSTROOT.USERLIB library. INSTROOT is the high-level qualifier for the installation.
+After completing the installation, perform postinstallation tasks, as described in
+"Post-Installation Instructions", as required.
+THE VSAM DRIVER IS INSTALLED
+AUTOMATICALLY. DO YOU ALSO WANT
+ATTUNITY CONNECT FOR LEGACY
+ADAPTER TO WORK WITH VSAM UNDER
+CICS (YES/NO) [NO] :
+Answer YES to this prompt if you have AIS for VSAM
+already installed and you want to access VSAM data under
+CICS.
+ENTER THE CICS EXCI LOAD LIBRARY NAME
+[CICSTS13.CICS.SDFHEXCI] :
+If you responded YES to working with VSAM under CICS,
+then enter the CICS EXCI load library name only if you do
+not want the default.
+PLEASE CONFIRM (YES/NO/QUIT) [YES] : If you responded YES to working with VSAM under CICS,
+then confirm the entered details.
+ENTER THE ISPF LOAD LIBRARY NAME
+[ISP.SISPLOAD] :
+Enter the ISPF load library name only if you do not want the
+default.
+PLEASE CONFIRM (YES/NO/QUIT) [YES] : Confirm the entered details
+ENTER THE OUTPUT CLASS FOR
+INSTALLATION OUTPUT [A] :
+Enter the output class for the Attunity Server output.
+Assigning a device which is set on HOLD prevents the loss of
+log information when the Attunity Server started tasks
+finish (the default is A).
+DO YOU WANT TO USE THE DEFAULT JOB
+CARD Y/N [Y]
+A job card is displayed. If you want to use a replacement
+card, then it must be entered as it will appear in the job. You
+can enter up to six lines. Enter a blank card to end input.
+If you do not enter a card, then the Attunity Server default
+card is used.
+Table 2–10 (Cont.) CICS Adapter Installation Prompts and Responses
+Screen Response
+Post-Installation Instructions 3-1
+3
+Post-Installation Instructions
+This section describes procedures that are performed after the installation was
+successfully performed.
+It includes the following topics:
+n Overview
+n General Post Installation Procedures
+n Setting Up Security
+n Setting Up Attunity Server to Work with CICS
+n Setting Up Attunity Server to Work with IMS/TM
+n Setting Up Attunity Server for Reentrancy
+n Setting Up Attunity Server to Access DB2 CLI
+n Setting Up Attunity Server to Update VSAM Data
+n Setting Up Attunity Server to Access IMS/DB
+n Installing Attunity Server Natural/CICS Agent
+n Setting the Language
+Overview
+This section describes post instllation tasks that must be performed to work with
+Attunity Server.
+In addition, if you are upgrading Attunity Server, see Updating an Existing Attunity
+Server Installation with CICS.
+Attunity Server version for mainframe includes a PS, NAVROOT.DEF.GBLPARMS,
+which contains global environment information. This PS is read at startup and the
+correct version of Attunity Server is used, based on the details provided in the
+Attunity Server startup task.
+The information stored in this member includes the dataset qualifier where Attunity
+Server is installed, and other information for Attunity Server use.
+If you change the location of NAVROOT.DEF.GBLPARMS, you must also change the
+relevant cards in the following jobs to the new locations:
+n ATTSRVR: Located in an active proclib (such as USER.PROCLIB), as described in
+Setting APF-Authorization and Started Tasks.
+3-2 Attunity Integration Suite Installation Guide for Mainframe Systems
+n ATTDAEMN: Located in an active proclib (such as USER.PROCLIB), as described in
+Setting APF-Authorization and Started Tasks.
+n NVIMSSRV: Located in an active proclib (such as USER.PROCLIB), as described in
+Setting APF-Authorization and Started Tasks.
+n NAVSQL: Located in NAVROOT.USERLIB
+General Post Installation Procedures
+This section includes the following topics:
+n Registering Attunity Server
+n Setting APF-Authorization and Started Tasks
+n Setting 2-Phase Commit
+n TCP/IP
+n Workspace for z/OS Server Environment File
+Registering Attunity Server
+Registration is available from within Attunity Server, after adding a machine in the
+Design perspective Configuration explorer.
+To register Attunity Server
+1. In Attunity Studio, right-click the machine and select License Management.
+2. Select Register Product.
+3. In the Register Product window, browse to the license file supplied by Attunity.
+The details of the license are displayed.
+4. Click Register to register Attunity Server on this machine.
+Setting APF-Authorization and Started Tasks
+All JCL jobs and REXX procedures are written to the NAVROOT.USERLIB library. After
+the installation procedure completes, do the following:
+n Define the LOADAUT library as an APF-authorized library as follows:
+1. Enter the following command in the SDSF screen:
+"/setprog apf,add,dsn=navroot.loadaut,volume=ac002"
+Where ac002 is the volume where you installed Attunity Server and
+navroot is the high-level qualifier where Attunity Server is installed.
+2. If the Attunity Server installation volume is managed by SMS, then when
+defining APF-authorization, enter the following command in the SDSF screen:
+"/setprog apf,add,dsn=navroot.loadaut,SMS"
+3. Ensure that the library is APF-authorized, even after an IPL of the machine.
+Note: The success message that is displayed relates to the license
+being loaded to the repository. It does not validate the license itself.
+Thus, an invalid license can still generate a success message.
+Post-Installation Instructions 3-3
+n Move the NAVROOT.USERLIB(ATTDAEMN), NAVROOT.USERLIB(ATTSRVR), and if
+you are using IMS/DLI the NAVROOT.USERLIB(NVIMSSRV) members to any
+active proclib (such as USER.PROCLIB). ATTDAEMN, ATTSRVR, NVIMSSRV are run
+as started tasks.
+ATTDAEMN controls the Attunity Server daemon. A daemon runs on every
+machine running Attunity Server and manages communication between machines
+running Attunity products.
+The daemon authenticates clients, authorizes requests for a server process within a
+certain server workspace and provides clients with the required servers. When a
+client requests a connection, the daemon allocates a server process (or where
+applicable, a thread) to handle this connection, and refers the client to the allocated
+process.
+This may be a new process (dedicated to this client) or an already-started process.
+Further communication between the client session and the server process is direct
+and does not involve the daemon. The daemon is notified when the connection
+ends and the process is either killed or remains available for use by another client.
+The server processes are managed by ATTSRVR.
+If you decide to rename the ATTSRVR member when you move it to a general
+high-level qualifier, then change the name specified in the StartupScript
+parameter in the daemon configuration to the new name, as follows:
+1. Run NAVROOT.USERLIB(NAVCMD).
+2. Enter the following at the prompt:
+EDIT DAEMON IRPCDINI
+3. Change the startupScript parameter from ATTSRVR to the new name for
+the server. For example:
+<Workspace name="Navigator"
+startupScript="NEW_NAME"
+serverMode="reusable"
+... />
+4. Exit and save the changes.
+5. If you get following error:
+ISPS118L SERVICE NOT INVOKED. A VALID ISPF ENVIRONMENT DOES NOT EXIST.
+then run the following procedure:
+– Run NAVROOT.USERLIB(NAVCMD) and enter ‘export all sys
+xml.data.set’ at the prompt.
+– Using the z/OS text editor, change the startupScript parameter from
+ATTSRVR to the new name for the server. For example:
+<Workspace name="Navigator"
+startupScript="NEW_NAME"
+serverMode="reusable"
+... />
+– Rerun NAVROOT.USERLIB(NAVCMD) and enter ‘import sys
+xml.data.set’ at the prompt.
+3-4 Attunity Integration Suite Installation Guide for Mainframe Systems
+n The ATTDAEMN, ATTSRVR, and NVIMSSRV (if you are using IMS/DLI) started
+tasks need permission to use an Open Edition TCP/IP stack. The owner must be a
+user with OMVS segment defined.
+n Change the following line in the ATTDAEMN job to include the IP address of the
+z/OS machine.
+For example, before:
+// PARM=’-B START IRPCDINI’
+After:
+// PARM='-B -L ip_address START IRPCDINI'
+The following table lists the protected system functions that are used by AIS. AIS
+always requires the functions listed for the LOADAUT library. The LOAD library
+functions listed require authorization only when you need those functions. See the
+Used for: column in the table for an explanation of when and if you need to authorize
+the LOAD library.
+Setting 2-Phase Commit
+To use two-phase commit capability to access data on the z/OS machine, define every
+library in the ATTSRVR JCL as an APF-authorized library (see Setting
+APF-Authorization and Started Tasks).
+TCP/IP
+For information about specifying Attunity Server as the service using port 2551 in the
+TCP/IP network services file, consult TCP/IP documentation.
+Workspace for z/OS Server Environment File
+You can configure the daemon server subtask for a workspace through an z/OS
+environment file. The file must be named NAVROOT.DEF.workspaceDEF where
+NAVROOT is the high level qualifier where Attunity Server is installed. On start up, a
+server process for workspace abcd looks for the file NAVROOT.DEF.abcdDEF.
+Table 3–1 APF Authorized Functions in AIS
+Authorized
+Function Library Mandatory Component Used for:
+MGCRE LOADAUT Yes Daemon Starting servers by the daemon
+RACROUTE LOUDAUT Yes Daemon Authentication of credentials
+RACROUTE LOAD No Impersonation Used when a reusable server
+needs to impersonate different
+users.
+MCSOPER, MGCRE LOAD No IMS CDC Used to set up automatic
+syncpoints with IMS CDC
+IFI functions LOAD No DB2 CDC Using the DB2 instrumentation
+facility requires authorization.
+RRS LOAD No 2PC Used when setting up two-phase
+commit.
+Post-Installation Instructions 3-5
+The worspaceDEF server environment file has the following format:
+<ENVIRONMENT>
+SUBSYSTEM=paramvalue1
+PLAN=paramvalue2
+Setting Up Security
+Make the following definitions in the security manager (the following is phrased
+sspecifically for RACF, although the same principles also apply to TopSecret and
+ACF/II).
+Define ATTDAEMN and ATTSRVR with a started task class and a general profile that
+enables the following:
+n Provide NVIMSSRV access to ATTDAEMN.
+n START authority for the ATTSRVR job.
+n Access to an Open z/OS segment, which defines access to TCP/IP OE sockets.
+n Access for the ATTSRVR.* profile to the following:
+– Adabas: ATTSRVR requires READ authority to the Adabas load library.
+– DB2: ATTSRVR requires the following authority:
+* EXECUTE for the used plan.
+* READ, UPDATE, ALTER on the DB2 tables to the level you want to provide
+the client application.
+You must grant ATTSRVR with READ acess to the sys-tables (SYSTABLES,
+SYSCOLUMNS, etc.).
+* TRACE(MON) and MONITOR2 for DB2 CDC.
+– IMS/DB and IMS/TM: ATTSRVR requires READ authority for the following
+IMS resources:
+* IMSXCF.OTMACI facility.
+* Any facilty defined for the Attunity Server XCF members. For example, on
+SY07, if the XCF member is called ATTXCFMB, then set up
+IMSXCF.OTMAI07A.ATTXCFMB with READ access in the FACILITY class
+and specify the ATTSRVR userid in the access list.
+* IMS.RESLIB
+* IMS.PGMLIB
+* IMS.PROCLIB
+n ALTER authority on datasets under NAVROOT (for access to read, write, allocate
+and delete under NAVROOT).
+Note: If the workspace name is longer than five characters, then the
+z/OS environment file name must be truncated to five characters. This
+means that the default workspace, Navigator, will look for a file
+called NavigDEF.
+3-6 Attunity Integration Suite Installation Guide for Mainframe Systems
+Attunity Server Stream and DB2 Security
+All the libraries in the STEPLIB must be APF-authorized. Grant DB2 DISPLAY
+GROUP authorization to the ATTSRVR started task. Issue the following commands to
+the owner of the ATTSRVR started task:
+GRANT TRACE(STAT)
+GRANT TRACE(MON)
+GRANT MONITOR2
+The owner of the ATTSRVR strarted task must have privileges in DB2 to run offline.
+Issue the following command:
+-start trace(stat)
+Setting Up Attunity Server to Work with CICS
+If you did not set up CICS during the installation, do the following to work with CICS:
+1. Edit the ATTSRVR member to include the CICS EXCI load library name. ATTSRVR
+is located in both NAVROOT.USERLIB and an active proclib (such as
+USER.PROCLIB).
+For example, edit ATTSRVR to add the following lines:
+// DD DSN=&cicspfx.SDFHEXCI,
+// DISP=SHR
+Where &cicspfx is the CICS system prefix (CICSTS13.CICS for example) and
+NAVROOT is the high-level qualifier where Attunity Server is installed.
+2. Edit the NAVROOT.USERLIB(NAVCMD) and NAVROOT.USERLIB(NAVSQL) to
+include the CICS EXCI load library name to the TASKLIB. For example, add the
+following lines:
+ALLOCATE DDNAME(TASKLIB) DA('NAVROOT.LOAD'
+'&cicspfx.SDFHEXCI' 'ADA622.LOAD'
+'ISP.SISPLOAD') SHR
+Where &cicspfx is the CICS system prefix (CICSTS13.CICS for example)
+NAVROOT is the high-level qualifier where Attunity Server is installed.
+3. IRCSTRT=YES must be specified in the CICS initialization parameters, so that the
+IRC (Inter Region Communication) starts, as specified in Software Requirements.
+4. AIS provides a VTAM netname, ATYCLIEN, for the specific connection used by
+EXCI (and MRO) to relay program calls to the CICS target system.
+Set up ATYCLIEN as follows:
+n Use the JCL in the NAVROOT.USERLIB(CICSCONF) member to submit the
+DFHCSDUP batch utility program to add the resource definitions to the
+DFHCSD dataset (see the IBM CICS Resource Definition Guide for further
+details).
+Or,
+n Use the instream SYSIN control statements in the
+NAVROOT.USERLIB(CICSCONF) member as a guide to defining the resources
+online using the CEDA facility.
+Post-Installation Instructions 3-7
+Setting Up Attunity Server to Work with IMS/TM
+In order to execute an IMS transaction with Attunity Server, you need to set OTMA as
+described below.
+To set OTMA to work with Attunity Server
+1. Install OTMA with OTMA C/I where IMS resides, since OTMA is not
+automatically installed using the IMS INSTALL/IVP Dialog.
+2. In the IMS system definition, set the startup parameter in the IMS procedure to
+OTMA=Yes.
+In addition, set additional OTMA-related parameters such as GRNAME= for the
+XCF group name, and OTMANM= for the IMS member name in that XCF group, as
+in the following example:
+EDIT IMS.PROCLIB(DFSPBIV1) - 01.03
+command ===>
+000082 AOIS =,
+000083 GRNAME=IMSATT01,
+000084 OTMA=YES,
+000085 MAXPST=
+000086 OTMANM=
+3. Start the OTMA Callable Interface (C/I).
+4. Add an entry in the program properties table (PPT) for the OTMA C/I
+initialization program, by editing the SCHEDxx member of the SYS1.PARMLIB
+dataset, and adding the following entry:
+PPT PGMNAME(DFSYSVI0)/*PROGRAM NAME =DFSYSVI0 */
+CANCEL /*PROGRAM CAN BE CANCELED */
+KEY(7) /*PROTECT KEY ASSIGNED IS 7 */
+SWAP /*PROGRAM IS SWAPPABLE */
+NOPRIV /*PROGRAM IS NOT PRIVILEGED */
+DSI /*REQUIRES DATA SET INTEGRITY */
+PASS /*CANNOT BYPASS PASSWORD PROTECTION */
+SYST /*PROGRAM IS A SYSTEM TASK */
+AFF(NONE) /*NO CPU AFFINITY */
+NOPREF /*NO PREFERRED STORAGE FRAMES */
+5. Do one of the following to make the SCHEDxx changes take effect:
+n Re-IPL the system.
+n Issue the MVS SET SCH= command.
+6. Edit and submit the following JCL procedure to run DFSYSVI0:
+//OTMAINIT PROC RGN=3000K,SOUT=A,
+/PARM1=
+//*
+//IEFPROC EXEC PGM=DFSYSVI0,
+//REGION=&RGN
+//*
+//STEPLIB DD DISP=SHR,UNIT=SYSDA,
+//DSN=IMSVS.RESLIB
+//*
+//SYSPRINT DD SYSOUT=&SOUT
+//SYSUDUMP DD SYSOUT=&SOUT
+//*
+3-8 Attunity Integration Suite Installation Guide for Mainframe Systems
+7. Run DFSYSVI0 after the IPL, to initialize OTMA C/I.
+Setting up Attunity Server to work with IMS/DB CDC
+To ensure that events are written to the log, in the NAVROOT.USERLIB(NVIMSCMD)
+the following remove the comment marks (/*) from the following:
+/* "ALLOCATE DDNAME(IEFRDER) DA('JOHNW.AS5120R."USERID()".TMP.IMSLOG') NEW */
+/* DELETE SPACE(1,1) CYL */
+/* BLKSIZE(1920) LRECL(1916) RECFM(U) REUSE" */
+The lines should look like the following:
+"ALLOCATE DDNAME(IEFRDER) DA('JOHNW.AS5120R."USERID()".TMP.IMSLOG') NEW
+DELETE SPACE(1,1) CYL */
+BLKSIZE(1920) LRECL(1916) RECFM(U) REUSE"
+Setting Up Attunity Server for Reentrancy
+All AIS load modules are reentrant to enable subtasking. Therefore, move
+INSTROOT.LOAD to the Link Pack Area (LPA).
+Where INSTROOT is the high-level qualifier where AIS is installed.
+Using the LPA reduces real storage usage (because everyone shares the LPA copy) and
+fetch time.
+If you intend using impersonation, so that you can run in a security context that is
+different than the context of the process that owns the server, then do the following:
+1. Place the INSTROOT.LOAD(ATYSVCW) member in an APF-authorized library
+outside the LPA.
+2. Change the ATTSRVR member (located in the active proclib), by adding the
+following to the STEPLIB list:
+// DD DSN=apf_library,DISP=SHR
+Where apf_library is the APF-authorized library outside the LPA where the
+ATYSCVW member was moved.
+Setting Up Attunity Server to Access DB2 CLI
+In order to access DB2 CLI, you must have DB2 CLI installed on the machine. For
+details of DB2 CLI, refer to the IBM Call Level Interface Guide and Reference.
+The AIS DB2 CLI driver uses an ODBCINI file. During installation of Attunity Server,
+an ODBCINI file is defined as a member in NAVROOT.USERLIB.
+The ODBCINI file is similar to the following:
+; This is a comment line...
+; Example COMMON odbcini
+[COMMON]
+MVSDEFAULTSSID=DSN1
+; Example SUBSYSTEM odbcini for DSN1 subsystem
+[DSN1]
+MVSATTACHTYPE=CAF
+PLANNAME=DSNACLI
+The PLANNAME value is the default DB2 Calling Level Interface (CLI) plan name. If a
+different plan is used, change the name to the correct plan.
+Post-Installation Instructions 3-9
+You can specify other parameters in the ODBCINI file, as described in the IBM ODBC
+Guide and Reference.
+You must bind to the plan specified in the PLANNAME parameter. The bind to the plan,
+check that the job DSNxxx.SDSNSAMP(DSNTIJCL) includes the following line:
+BIND PLAN(DSNACLI)
+Where DSNxxx is the DB2 high-level qualifier (the default is DSN610) and DSNACLI is
+the plan name specified for the PLANNAME parameter.
+For details about setting DB2 security with AIS Stream, see Attunity Server Stream and
+DB2 Security.
+Setting Up Attunity Server to Update VSAM Data
+In order to set up Attunity Server to be able to update VSAM data from a CICS
+transaction, copy the UPDTRNS load module from NAVROOT.LOAD to a CICS DFHRPL
+library (such as 'CICS.USER.LOAD') and then define the UPDTRNS program under
+CICS using any available group such as ATY group:
+CEDA DEF PROG(UPDTRNS) G(ATY) LANG(C) DA(ANY) DE(ATTUNIT VSAM UPDATE PROG)
+After defining the UPDTRNS program to a group, install it as follows:
+CEDA IN G(ATY)
+Setting Up Attunity Server to Access IMS/DB
+In the NVIMSSRV, NVIMSSQL, NVIMSCMD jobs that call IMS, add DD cards for every
+dataset referenced by one of the DBDs for the PSB.
+Example 3–1 DD Card
+The following DD card can be specified when one of the DBD cards uses the DD card
+NAVDD. Note the other cards, which are built based on the entries specified for IMS
+during installation.
+"ALLOCATE DDNAME(IMS) DA('ATTUNITY.CONNECT.PSBLIB'
+'ATTUNITY.CONNECT.DBDLIB') SHR" – location of IMS libraries"ALLOCATE
+DDNAME(DFSVSAMP) DA('IMS.PROCLIB(DFSVSMDB)') SHR" – VSAM index file"ALLOCATE
+DDNAME(PROCLIB) DA('IMS.PROCLIB') SHR"
+Note: In the example, CAF is used, so only one-phase commit
+transactions are supported. Attunity Server also supports two-phase
+commit transactions, by setting the MVSATTACHTYPE parameter to
+RRSAF.
+Note: The AUTOCOMMIT initialization parameter is set automatically
+by Attunity Server at runtime, and thus should not be set in the
+ODBCINI file.
+Note: You cannot run multiple versions of NVIMSCMD in the same
+session using split screen.
+3-10 Attunity Integration Suite Installation Guide for Mainframe Systems
+"ALLOCATE DDNAME(NAVDD) DA('ATTUNITY.IMS.DATA.MYDS') SHR" – DD card for data of
+the DBD"ALLOCATE DDNAME(IEFRDER) DA('ATTUNITY.CONNECT.TMP.IMSLOG') NEW
+DELETE SPACE(1,1) CYL
+BLKSIZE(1920) LRECL(1916) RECFM(U) REUSE" – IMS log"CALL
+'IMS.RESLIB(DFSRRC00)' 'DLI,NAVUTIL,NAVPSB'" – PSB name for this call
+For details about setting up the daemon to work with IMS/DB, see the AIS User Guide
+and Reference.
+In the security manager, define NVIMSSRV with a started task class and a general
+profile that enables the following:
+n Access to an Open z/OS segment, that defines access to TCP/IP OE sockets.
+n Access to read, write, allocate and delete for datasets under NAVROOT.
+Setting Up IMS/DB Under IMS/TM
+Perform the following to access IMS/DB data under IMS/TM:
+1. Copy the ATYDBDC program from NAVROOT.LOAD to an IMS/TM program library
+(such as 'IMS.PGMLIB') with the name of the PSB used to access the IMS/DB data.
+2. Define the transaction to point to the program, using statements such as in the
+following:
+APPLCTN PSB=ATYDBDC,SCHDTYP=PARALLEL
+TRANSACT CODE=ATYIMSTM,PRTY=(7,10,2),INQUIRY=NO,MODE=SNGL,EDIT=ULC
+The default transaction name is ATYIMSTM. If you use a different transaction, the
+transaction name must be less than or equal to eight characters and you must
+specify this value in the imsTransname driver property in the binding.
+3. Set up OTMA, as described in Setting Up Attunity Server to Work with IMS/TM.
+Installing Attunity Server Natural/CICS Agent
+The in1stallation copies the following libraries (source and load) and the Natural INPL
+dataset to disk:
+n A source library (NAVROOT.NATAGENT.SRCLIB).
+n A load library (NAVROOT.NATAGENT.LODLIB).
+n An INPL dataset containing Natural source programs, object programs, and data
+areas (NAVROOT.NATAGENT.INPL).
+The following summarizes the installation procedure for the Attunity Server agent for
+Natural/CICS Remote Procedure Calls:
+1. Configuring the Agent.
+2. Installing the CICS Resource Definitions.
+3. Loading and Cataloging the Natural Programs.
+Note: This DD card is appropriate when using HIDAM.
+Note: The above is phrased specifically for RACF, although the same
+principles also apply to TopSecret and ACF/II.
+Post-Installation Instructions 3-11
+4. Making the Agent Load Modules Available to the CICS Region.
+5. Verifying the Agent Installation is Successful.
+6. Verify the installation is successful from a client machine.
+Configuring the Agent
+To configure the Natural/CICS Agent
+1. Specify the parameters of the Agent Control Block and perform an
+Assembly/Link.
+See System Parameters for the Natural Agent for a description of all the
+parameters available for tailoring the Agent to the specific installation
+requirements.
+2. Edit the JOBCBLK in the NAVROOT.NATAGENT.SRCLIB source library, as follows:
+1. Specify the parameter values you have chosen.
+2. Edit dataset names in the assemble/link JCL as appropriate.
+3. Submit the job.
+4. Check the output to verify that a ATYLCBLK load module has been
+successfully link-edited into the LOAD library.
+Installing the CICS Resource Definitions
+If any program names, transids, etc. were modified in the previous step, edit the
+CICSDEF member in the NAVROOT.NATAGENT.SRCLIB source library and make the
+appropriate changes to the CICS resource definitions. You may also wish to modify the
+RECEIVECOUNT parameter in the ATYS sessions definition (for EXCI communication)
+in this member, if the default value (20) is too small for your installation requirements.
+The default value set for RECEIVECOUNT is 20.
+The CICSDEF member can be used as input to the DFHCSDUP batch utility program to
+add the resource definitions to the DFHCSD dataset. A source library member named
+JOBCICS with sample JCL has been supplied for convenience. See the IBM CICS
+Resource Definition Guide for further details.
+For example, edit the LOBCICS member as follows:
+//CICSDEF PROC CSDDSN='CICS.DFSCSD',
+SRCLIB='NAVROOT.NATAGENT.SRCLIB',
+CICSPRF='CICS.CICS'
+After editing the file, save and submit it.
+Alternatively, the CICSDEF memeber can be used as a guide to defining the resources
+online, using the CEDA facility.
+After the definitions have been successfully added (either via DFHCSDUP or by manual
+online definition), logon to CICS and issue the following commands to install the
+resource definitions under CICS:
+Note: Specifically, determine which security strategy is best for the
+site and how you will implement it. See Parameters for Specific Needs
+for information on the SECMODE and AUTO parameters.
+3-12 Attunity Integration Suite Installation Guide for Mainframe Systems
+CEDA INST GROUP(ATYL)
+CEMT SET IRC CLOSE
+CEDA INST GROUP(ATYI)
+CEMT SET IRC OPEN
+Loading and Cataloging the Natural Programs
+Either use the JCL contained in JOBNLOAD member in the
+NAVROOT.NATAGENT.SRCLIB library, or refer to the in-house Natural administrator,
+who should have standard JCL available to load Natural programs from an INPL file
+to the Natural user system file using the NATLOAD utility.
+Specify the supplied INPL dataset in the JCL (ddname: CMWKF01) and submit the job.
+The Natural programs and data areas are loaded to the NATAGENT library on the user
+system file. If Natural Security is installed, then the NATAGENT library should be
+defined to Natural Security.
+Start a Natural online session and perform the following to catalog all of the Attunity
+Server programs and data areas:
+1. Logon to the NATAGENT library.
+2. Issue the CATALL command and enter * for the program name.
+3. Mark the Catalog all Source programs option and press Enter.
+4. Add the NATAGENT library to the STEPLIB of all libraries containing subprograms
+executed by the Natural agent. Alternatively, move the following four catalogued
+modules to SYSTEM library:
+n ATYETA
+n ATYNDISP
+n ATYNDIS2
+n ATYPARMS
+Making the Agent Load Modules Available to the CICS Region
+Make the Natural agent load modules available to the CICS region in one of following
+ways:
+n Concatenate the agent load library to the DFHRPL ddname in the CICS region JCL.
+n Copy the required load modules to a user load library already defined in DFHRPL.
+If the CICS region is currently active, the NEWCOPY function of CEMT must be
+executed to make the load modules accessible for this session of CICS.
+Note: For Natural version 2.3 and higher, use the NATLOAD utility
+instead of the INPL utility.
+Note: The TESTAG01 source subprogram is used to verify a
+successful installation. This subprogram should have been cataloged
+after performing the previous steps.
+Post-Installation Instructions 3-13
+As a rule, peruse the list of resources being defined to CICS in the CICSDEF member
+in the Natural agent source library (programs, transactions, connections, etc.) and
+decide what to authorize in order for the Natural agent to work.
+In particular note that the ATYN, ATYP, and ATYM transactions are all being started as
+asynchronous non-terminal tasks and should be defined to the security tool (such as
+RACF) accordingly. Also the ATYCLIEN special connection for EXCI should be defined
+to the security tool.
+Verifying the Agent Installation is Successful
+Test remote procedure calls are included in the kit to verify a successful installation.
+The two remote procedure calls perform simple arithmetic manipulations on the input
+parameters and return the results as output parameters.
+The first test verifies that the ATY transaction and the Natural agent function correctly.
+The second verifies that the Attunity Server can be used with Natural.
+To verify the installation on the Mainframe is successful
+1. Edit the TESTINST member in the provided source library and make any
+necessary changes. In particular, change the &APPLID variable to the value of
+APPLID in the CICS region.
+2. Save the member.
+3. Edit the JOBAGENT member in the provided source libraries and make any
+necessary changes for the site. In particular, set the TESTNUM variable to 01.
+4. Submit the job.
+The JOBLOG of the batch job should show the following results:
++RESP = 00000000
++RESP2 = 00000000
++ABCODE =
++OPERAND1 = 0128
++OPERAND2 = 0016
++SUM = 00144
++DIFFERENCE = 0112
++PRODUCT = 00002048
++QUOTIENT = 0008
++ERRCODE = 00000000
++MESSAGE = TESTAG01 EXECUTED SUCCESSFULLY
+Note: Be cautioned that the ATYN transaction is not intended to be
+issued directly from a terminal, and will usually terminate abnormally
+when issued from a terminal (It is designed to be attached and
+executed asynchronously as a non-terminal background task by the
+Natural agent).
+Note: Other variables enable you to modify the arithmetic operands
+and find-criteria of the subprograms being called. Do not change these
+variables when initially verifying the installation.
+3-14 Attunity Integration Suite Installation Guide for Mainframe Systems
+Verifying the Installation is Successful from a Client
+Test remote procedure calls are included in the kit to verify a successful installation.
+These remote procedure calls perform simple arithmetic manipulations on the input
+parameters and return the results as output parameters.
+To verify the installation is successful from a client machine
+1. Specify an entry in the binding configuration similar to the following:
+<datasources>
+<datasource name=’NATPROC’ type=’NATURAL’
+connect=’CICS,ATYCLIEN’ />
+</datasources>
+2. Set up the metadata for the TESTAG01 procedure. The XML definition for the
+metadata is as follows:
+<?xml version='1.0'?>
+<navobj>
+<procedure name="testag01">
+<dbCommand>
+PROGRAM=ATYLSTN;TRANSID=ATYI;LIBRARY=NATAGENT
+SUBPROGRAM=TESTAG01
+</dbCommand>
+<fields>
+<field name="SUM" datatype="ada_numstr_s" size="5" scale="0"/>
+<field name="DIFFERENCE" datatype="ada_numstr_s" size="4"
+scale="0"/>
+<field name="PRODUCT" datatype="ada_numstr_s" size="8" scale="0"/>
+<field name="QUOTIENT" datatype="ada_numstr_s" size="4"
+scale="0"/>
+</fields>
+<parameters>
+<field name="OPERAND1" datatype="ada_numstr_s" size="4" scale="0"/>
+<field name="OPERAND2" datatype="ada_numstr_s" size="4" scale="0"/>
+</parameters>
+</procedure>
+</navobj>
+3. Import the ADD metadata XML file to Attunity Server by running the NAVCMD
+IMPORT utility. For example:
+Run NAVROOT.USERLIB (NAVCMD) and enter ’IMPORT NATPROC
+NATAGENT.SAMPLE.ADD.TSTAG01X’ at the prompt, where
+NATAGENT.SAMPLE.ADD.TSTAG01X is the dataset which contains the XML
+Note: The following error is commonly received (on the JOBLOG)
+when the APPLID in the TESTINST member has not been set
+properly:
+RESP = 00000008
+RESP2 = 00000203
+If you receive this error, return to step 1 above and set the name of the
+CICS APPLID correctly, then re-submit. If you still receive the error,
+make sure that the specified CICS region is in fact active.
+Post-Installation Instructions 3-15
+4. Execute calls from a client to confirm that the software is functioning as specified.
+For example, on a non-z/OS machine, running Attunity Server, use NAV_UTIL
+EXECUTE NATPROC.
+n TESTAG01: Receives two arithmetic operands and returns their sum,
+difference, product and quotient.
+n Input parameters: OPERAND1 (numeric, 4 bytes,0 precision), OPERAND2
+(numeric, 4 bytes, 0 precision).
+n Output parameters: SUM (numeric, 5 bytes, 0 precision), DIFFERENCE
+(numeric, 4 bytes, 0 precision), PRODUCT (numeric, 8 bytes, 0 precision),
+QUOTIENT (numeric, 4 bytes, 0 precision).
+Example 3–2
+Set the input parameters as follows:
+OPERAND1=128
+OPERAND2=16
+The following output parameters should be returned:
+SUM=144
+DIFFERENCE=112
+PRODUCT=2048
+QUOTIENT=8
+Setting the Language
+National Language Support (NLS) is provided by Attunity Server for the following
+languages:
+n English (the default)
+n Hebrew
+n Japanese
+n Korean
+n Simple Chinese
+n Traditional Chinese
+The language is specified in the following Attunity Server environment settings:
+n language
+n codepage
+For more information on NLS, see "National Language Support (NLS)" in the AIS User
+Guide and Reference.
+3-16 Attunity Integration Suite Installation Guide for Mainframe Systems
+Index-1
+Index
+Numerics
+2PC, 3-4
+2-Phase Commit, 3-4
+A
+AIS Server registration, 3-2
+APF-Authorization
+setting, 3-2
+C
+Cataloging
+Natural programs, 3-12
+Codepage
+setting, 3-15
+D
+disk space requirements
+IBM S/390, 2-1
+H
+hardware requirements
+IBM S/390 disk space, 2-1
+UNIX, 2-1
+I
+IBM S/390
+postinstallation, 2-9
+preinstallation, 2-3
+IBM z/OS
+installation, 2-4
+importing installation kit, 2-3
+installation
+IBM z/OS, 2-4
+importing kit, 2-3
+kit, 2-3
+Installing
+CICS resource definitions, 3-11
+K
+kit installation, 2-3
+L
+License, 3-2
+Loading
+Natural programs, 3-12
+N
+Natural programs
+cataloging, 3-12
+installing, 3-12
+O
+operating system requirements
+UNIX, 2-1
+P
+postinstallation
+IBM S/390, 2-9
+preinstallation
+IBM S/390, 2-3
+processor requirements
+UNIX, 2-1
+R
+Reentrancy, 3-8
+Registering, 3-2
+requirements
+UNIX hardware requirements, 2-1
+UNIX software requirements, 2-1
+S
+Security
+setting up, 3-5
+Server Environment File, 3-4
+Setting
+apf-authorization, 3-2
+language, 3-15
+security, 3-5
+Setting Up
+CICS, 3-6
+DB2 CLI, 3-8
+IMS/DB, 3-9
+Index-2
+IMS/TM, 3-7
+updating VSAM data, 3-9
+software requirements
+UNIX operating system, 2-1
+Started Tasks, 3-2
+T
+TCP/IP, 3-4
+V
+Verifying
+from a client machine, 3-14
+successful installation, 3-13
+VSAM Data, 3-9

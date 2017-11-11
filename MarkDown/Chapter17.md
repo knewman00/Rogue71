@@ -1,3 +1,14 @@
+What is the Attunity Stream CDC Solution
+====================================
+
+This section includes the following topics:  
+  CDC Solution Overview  
+  The Attunity Stream CDC Architecture  
+  What Can Be Captured?  
+
+CDC Solution Overview
+=====================
+
 Attunity Stream captures and delivers the changes made to enterprise
 data sources in real-time. This enables you to move mainframe and
 enterprise operational data in real-time to data warehouses and data
@@ -199,8 +210,18 @@ records for DB2 on the z/OS platform) information. The default is that
 only the after images are captured. The following table shows what is
 captured if before images are requested:
 
+
+Table 17–1 What is Captured
+
+|Operation | Before Image   | After Image|
+|---------|----------------|------------|
+|INSERT   |    X   |   P   |
+|UPDATE   |    P   |   P   |
+|DELETE   |    P   |   X   |
+
 To capture before images, the journal must be set up to include before
 images, as described for each type of journal.
+
 
 Tracking Changes - Auditing
 ===========================
@@ -214,6 +235,11 @@ Summary (Statistics): The total number of records retrieved from the
 change queue and system and error messages are reported. In addition,
 header information about each record captured, such as the type of
 operation and the table name, is reported.
+
+***
+Note: Details of the header information is provided in the CDC agent
+specific chapters.
+***
 
 Detailed: The total number of changes retrieved are reported, along with
 system and error messages. In addition, header information and record
@@ -252,19 +278,6 @@ DB2 Journal CDC on z/OS systems: The change data capture agent monitors
 both the archived and active DB2 journals and captures changes made to
 specific tables, which are written to these journals. Since transaction
 information is also stored,
-
-Table 17–1 What is Captured
-
-Operation Before Image After Image
-
-INSERT X P
-
-UPDATE P P
-
-DELETE P X
-
-Note: Details of the header information is provided in the CDC agent
-specific chapters.
 
 the committed change filter can be used to ensure that only committed
 changes are captured. For more information about the committed change

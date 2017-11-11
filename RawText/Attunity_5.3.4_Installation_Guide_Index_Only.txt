@@ -1,0 +1,90 @@
+
+
+3-16 Attunity Integration Suite Installation Guide for Mainframe Systems
+
+======================================================================================================================================================
+Index-1
+Index
+Numerics
+2PC, 3-4
+2-Phase Commit, 3-4
+A
+AIS Server registration, 3-2
+APF-Authorization
+setting, 3-2
+C
+Cataloging
+Natural programs, 3-12
+Codepage
+setting, 3-15
+D
+disk space requirements
+IBM S/390, 2-1
+H
+hardware requirements
+IBM S/390 disk space, 2-1
+UNIX, 2-1
+I
+IBM S/390
+postinstallation, 2-9
+preinstallation, 2-3
+IBM z/OS
+installation, 2-4
+importing installation kit, 2-3
+installation
+IBM z/OS, 2-4
+importing kit, 2-3
+kit, 2-3
+Installing
+CICS resource definitions, 3-11
+K
+kit installation, 2-3
+L
+License, 3-2
+Loading
+Natural programs, 3-12
+N
+Natural programs
+cataloging, 3-12
+installing, 3-12
+O
+operating system requirements
+UNIX, 2-1
+P
+postinstallation
+IBM S/390, 2-9
+preinstallation
+IBM S/390, 2-3
+processor requirements
+UNIX, 2-1
+R
+Reentrancy, 3-8
+Registering, 3-2
+requirements
+UNIX hardware requirements, 2-1
+UNIX software requirements, 2-1
+S
+Security
+setting up, 3-5
+Server Environment File, 3-4
+Setting
+apf-authorization, 3-2
+language, 3-15
+security, 3-5
+Setting Up
+CICS, 3-6
+DB2 CLI, 3-8
+IMS/DB, 3-9
+Index-2
+IMS/TM, 3-7
+updating VSAM data, 3-9
+software requirements
+UNIX operating system, 2-1
+Started Tasks, 3-2
+T
+TCP/IP, 3-4
+V
+Verifying
+from a client machine, 3-14
+successful installation, 3-13
+VSAM Data, 3-9

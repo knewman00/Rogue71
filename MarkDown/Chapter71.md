@@ -103,10 +103,10 @@ Table 71–1 Header Columns
 |               | COMMIT                                                       |
 |               | ROLLBACK                                                     |
 |               |                                                              |
-| transactionID |  The operation’s transaction ID.                             |
-| tableName     |  The name of the table where the change was made.            |
-|               |  For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.                                |
-|               |   For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.                                                    |
+| transactionID | The operation’s transaction ID.                              |
+| tableName     | The name of the table where the change was made.             |
+|               | For INSERT, UPDATE, and BEFOREIMAGE operations, the owner name and then the table name are displayed.  |
+|               | For COMMIT and ROLLBACK operations, this value is the same as the OPERATION value.                     |
 |timestamp      | The date and time of the occurrence.                         |
 
 
