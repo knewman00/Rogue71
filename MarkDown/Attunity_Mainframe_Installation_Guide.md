@@ -395,76 +395,78 @@ entry in the Screen column.
 
 
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  ENTER THE ADABAS LOAD LIBRARY NAME                                          |Enter the Adabas Load Library name for Adabas on your system.
-  --------------------------------------------------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  YOUR ADABAS SVC IS:                                                         |This is a summary of the Adabas questions. Check the summary to be sure all is correct. You can select:
-                                                                              |
-  THE ADABAS LOAD LIBRARY NAME IS:                                            |Yes, to use the Adabas database as configured
-                                                                              |
-  PLEASE CONFIRM (YES/NO/QUIT)                                                |No, to not use the Adabas database
-                                                                              |
-                                                                              |Quit, to leave the CUST process
-                                                                              |
-  DO YOU WANT ATTUNITY SERVER TO WORK                                         |If you want the server to work with IMS, then answer Y, otherwise answer N.
-                                                                              |
-  WITH IMS                                                                    |
-                                                                              |
-  ENTER IMS ID \[IMS1\]:                                                      |Enter the IMS subsystem ID
-                                                                              |
-  ENTER DBD LIBRARY NAME                                                      |Enter the IMS DBD Library name for IMS on your system
-                                                                              |
-  ENTER PSB LIBRARY NAME                                                      |Enter the IMS PSB Library name for IMS on your system
-                                                                              |
-  ENTER RES LIBRARY NAME                                                      |Enter the IMS RES Library name for IMS on your system
-                                                                              |
-  ENTER PROC LIBRARY NAME                                                     |Enter the IMS PROC Library name for IMS on your system
-                                                                              |
-  ENTER PGM LIBRARY NAME                                                      |Enter the IMS PGM Library name for IMS on your system.
-                                                                              |
-  ENTER YOUR PSB NAME                                                         |Enter the name of the PSB file with the name of your IMS
-                                                                              |
-  YOUR DBDLIB IS:                                                             |This is a summary of the IMS questions. Check the summary to be sure all is correct. You can select:
-                                                                              |
-  YOUR PSBLIB IS:                                                             |Yes, to use the IMS database as configured
-                                                                              |
-  YOUR RESLIB IS:                                                             |No, to not use the IMS database
-                                                                              |
-  YOUR PROCLIB IS:                                                            |n Quit, to leave the CUST process
-                                                                              |
-  YOUR PGMLIB IS:                                                             |
-                                                                              |
-  YOUR PSBNAME IS:                                                            |
-                                                                              |
-  PLEASE CONFIRM (YES/NO/QUIT) :YES: :                                        |
-                                                                              |
-  DO YOU WANT ATTUNITY SERVER TO WORK                                         |f you want the server to work with IMS/DB under CICS,
-                                                                              |
-  WITH IMS/DB UNDER CICS                                                      |then answer Y, otherwise answer N.
-                                                                              |
-  ENTER THE CICS EXCI LOAD LIBRARY NAME                                       |Enter the CICS EXCI load library name only if you do not
-                                                                              |
-  \[CICSTS13.CICS.SDFHEXCI\]:                                                 |want the default
-                                                                              |
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\]:                                       |Confirm the entered details
-                                                                              |
-  DO YOU WANT ATTUNITY SERVER TO WORK                                         |f you want the server to work with the CICS APP
-                                                                              |
-  WITH CICS APP ADAPTER                                                       |ADAPTER, then answer Y, otherwise answer N.
-                                                                              |
-  ENTER THE ISPF LOAD LIBRARY NAME \[ISP.SISPLOAD\] :                         |Enter the ISPF load library name only if you do not want the default
-                                                                              |
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\]:                                       |Confirm the entered details
-                                                                              |
-  ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\]:                       |Enter the output class for Attunity Server output. Assigning a device which is set on HOLD prevents the loss of log information when the Attunity Server started tasks finish (the default is A).
-                                                                              |
-  DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                           |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.
-                                                                              |
-                                                                              |If you do not enter a card, then the Attunity Server default card is used.
-                                                                              |
-  DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :   |It is recommended that you choose automatic, which is the default.
-                                                                              |
-                                                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| ENTER THE ADABAS LOAD LIBRARY NAME                                          |Enter the Adabas Load Library name for Adabas on your system.
+| --------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------------------
+| YOUR ADABAS SVC IS:                                                         |This is a summary of the Adabas questions. Check the summary to be sure all is correct. You can select:
+|                                                                             |
+| THE ADABAS LOAD LIBRARY NAME IS:                                            |Yes, to use the Adabas database as configured
+|                                                                             |
+| PLEASE CONFIRM (YES/NO/QUIT)                                                |No, to not use the Adabas database
+|                                                                             |
+|                                                                             |Quit, to leave the CUST process
+|                                                                             |
+| DO YOU WANT ATTUNITY SERVER TO WORK                                         |If you want the server to work with IMS, then answer Y, otherwise answer N.
+|                                                                             |
+| WITH IMS                                                                    |
+|                                                                             |
+| ENTER IMS ID \[IMS1\]:                                                      |Enter the IMS subsystem ID
+|                                                                             |
+| ENTER DBD LIBRARY NAME                                                      |Enter the IMS DBD Library name for IMS on your system
+|                                                                             |
+| ENTER PSB LIBRARY NAME                                                      |Enter the IMS PSB Library name for IMS on your system
+|                                                                             |
+| ENTER RES LIBRARY NAME                                                      |Enter the IMS RES Library name for IMS on your system
+|                                                                             |
+| ENTER PROC LIBRARY NAME                                                     |Enter the IMS PROC Library name for IMS on your system
+|                                                                             |
+| ENTER PGM LIBRARY NAME                                                      |Enter the IMS PGM Library name for IMS on your system.
+|                                                                             |
+| ENTER YOUR PSB NAME                                                         |Enter the name of the PSB file with the name of your IMS
+|                                                                             |
+| YOUR DBDLIB IS:                                                             |This is a summary of the IMS questions. Check the summary to be sure all is correct. You can select:
+|                                                                             |
+| YOUR PSBLIB IS:                                                             |Yes, to use the IMS database as configured
+|                                                                             |
+| YOUR RESLIB IS:                                                             |No, to not use the IMS database
+|                                                                             |
+| YOUR PROCLIB IS:                                                            |n Quit, to leave the CUST process
+|                                                                             |
+| YOUR PGMLIB IS:                                                             |
+|                                                                             |
+| YOUR PSBNAME IS:                                                            |
+|                                                                             |
+| PLEASE CONFIRM (YES/NO/QUIT) :YES: :                                        |
+|                                                                             |
+| DO YOU WANT ATTUNITY SERVER TO WORK                                         |f you want the server to work with IMS/DB under CICS,
+|                                                                             |
+| WITH IMS/DB UNDER CICS                                                      |then answer Y, otherwise answer N.
+|                                                                             |
+| ENTER THE CICS EXCI LOAD LIBRARY NAME                                       |Enter the CICS EXCI load library name only if you do not
+|                                                                             |
+| \[CICSTS13.CICS.SDFHEXCI\]:                                                 |want the default
+|                                                                             |
+| PLEASE CONFIRM (YES/NO/QUIT) \[YES\]:                                       |Confirm the entered details
+|                                                                             |
+| DO YOU WANT ATTUNITY SERVER TO WORK                                         |f you want the server to work with the CICS APP
+|                                                                             |
+| WITH CICS APP ADAPTER                                                       |ADAPTER, then answer Y, otherwise answer N.
+|                                                                             |
+| ENTER THE ISPF LOAD LIBRARY NAME \[ISP.SISPLOAD\] :                         |Enter the ISPF load library name only if you do not want the default
+|                                                                             |
+| PLEASE CONFIRM (YES/NO/QUIT) \[YES\]:                                       |Confirm the entered details
+|                                                                             |
+| ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\]:                       |Enter the output class for Attunity Server output. Assigning a device which is set on HOLD prevents the loss of log information when the Attunity Server started tasks finish (the default is A).
+|                                                                             |
+| DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                           |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.
+|                                                                             |
+|                                                                             |If you do not enter a card, then the Attunity Server default card is used.
+|                                                                             |
+| DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :   |It is recommended that you choose automatic, which is the default.
+|                                                                             |
+|                                                                             |
+ 
+ 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Postinstallation Instructions
