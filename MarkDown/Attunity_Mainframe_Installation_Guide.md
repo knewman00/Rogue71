@@ -255,7 +255,6 @@ for the Attunity Server installation. Assign the high-level qualifier
 you used in the preinstallation procedure.
 
 Note: You can use more than one high-level qualifier, such as
-
 ACME.DEV.&lt;HLQ&gt;, with the following conditions:
 
 The total length must be less than or equal to twenty characters.
@@ -282,19 +281,19 @@ Screen column.
 
 Table 2–4 Installation Prepare Job Prompts and Responses
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Screen Response                                                            |      vvvvv        
-  ---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  DO YOU WANT TO USE SMS MANAGED STORAGE FOR THIS INSTALLATION Y/N \[N\] :   | If you want to manage the storage using SMS, then answer Y, otherwise answer N.
-  ENTER THE STORCLASS FOR INSTALLATION TEMP DATASETS \[ \] :                 | This prompt is displayed only if SMS is used to manage the installation (you answered Y to the first prompt).
-                                                                              |Enter the storage class
-  ENTER THE UNIT NAME FOR INSTALLATION TEMP DATASETS \[3390\] :               |If a storage class is not specified, then enter the unit name for temporary datasets used during the installation procedure
-  ENTER THE VOLUME NAME FOR INSTALLATION TEMP DATASETS :                      |This prompt is displayed only if SMS is not used to manage the installation (you answered N to the first prompt).
-                                                                              |The volume name for temporary datasets used during the installation procedure
-  ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\] :                      |Enter the output class only if you do not want the default class used (the default is A)
-  DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                           |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input. If you do not enter a card, then the Attunity Server default card is used.
-  DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :   |If you want to review the JCL used to install Attunity Server, before it is submitted, then respond M for a manual installation.
-  PLEASE REVIEW AND SUBMIT FOR EXECUTION THE HLQ.TRANSMIT.LIB(INSTJO)         |This prompt is displayed only if a manual installation is
+ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ | Screen Response                                                            |      vvvvv        
+ | ---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ | DO YOU WANT TO USE SMS MANAGED STORAGE FOR THIS INSTALLATION Y/N \[N\] :   | If you want to manage the storage using SMS, then answer Y, otherwise answer N.
+ | ENTER THE STORCLASS FOR INSTALLATION TEMP DATASETS \[ \] :                 | This prompt is displayed only if SMS is used to manage the installation (you answered Y to the first prompt).
+ |                                                                             |Enter the storage class
+ | ENTER THE UNIT NAME FOR INSTALLATION TEMP DATASETS \[3390\] :               |If a storage class is not specified, then enter the unit name for temporary datasets used during the installation procedure
+ | ENTER THE VOLUME NAME FOR INSTALLATION TEMP DATASETS :                      |This prompt is displayed only if SMS is not used to manage the installation (you answered N to the first prompt).
+ |                                                                             |The volume name for temporary datasets used during the installation procedure
+ | ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\] :                      |Enter the output class only if you do not want the default class used (the default is A)
+ | DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                           |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input. If you do not enter a card, then the Attunity Server default card is used.
+ | DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :   |If you want to review the JCL used to install Attunity Server, before it is submitted, then respond M for a manual installation.
+ | PLEASE REVIEW AND SUBMIT FOR EXECUTION THE HLQ.TRANSMIT.LIB(INSTJO)         |This prompt is displayed only if a manual installation is
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 4\. Verify that all steps on the INSTJO job ended with return code 0.
@@ -685,9 +684,9 @@ entry in the Screen column.
 
 ---
 
-  **Screen**                                                                                                                                        |**Response**
- | ------------------------------------------------------------------------------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------
- |                                                                     xx                                                                            |zz
+ | **Screen**                                                                                                                                        |**Response**  
+ |---------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------
+ |                                                                     xx                                                                            |zz  
  |                                                                      xxx                                                                          |zz trying to get formattnig
  | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |Answer YES to this prompt if you have AIS for IMS/DB already installed.
  |                                                                                                                                                   |
@@ -787,20 +786,15 @@ Server use.
 If you change the location of NAVROOT.DEF.GBLPARMS, you must also change
 the relevant cards in the following jobs to the new locations:
 
-ATTSRVR: Located in an active proclib (such as USER.PROCLIB), as
-described in Setting APF-Authorization and Started Tasks.
+-  ATTSRVR: Located in an active proclib (such as USER.PROCLIB), as described in Setting APF-Authorization and Started Tasks.
 
-ATTDAEMN: Located in an active proclib (such as USER.PROCLIB), as
-described in
-
+-  ATTDAEMN: Located in an active proclib (such as USER.PROCLIB), as described in  
 Setting APF-Authorization and Started Tasks.
 
-NVIMSSRV: Located in an active proclib (such as USER.PROCLIB), as
-described in
-
+-  NVIMSSRV: Located in an active proclib (such as USER.PROCLIB), as described in  
 Setting APF-Authorization and Started Tasks.
 
-NAVSQL: Located in NAVROOT.USERLIB
+-  NAVSQL: Located in NAVROOT.USERLIB
 
 General Post Installation Procedures
 ------------------------------------
@@ -839,11 +833,7 @@ The details of the license are displayed.
 
 4\. Click Register to register Attunity Server on this machine.
 
-Note: The success message that is displayed relates to the license
-
-being loaded to the repository. It does not validate the license itself.
-
-Thus, an invalid license can still generate a success message.
+> Note: The success message that is displayed relates to the license being loaded to the repository. It does not validate the license itself.  Thus, an invalid license can still generate a success message.
 
 Setting APF-Authorization and Started Tasks
 -------------------------------------------
@@ -957,20 +947,14 @@ an explanation of when and if you need to authorize the LOAD library.
 
 Table 3–1 APF Authorized Functions in AIS
 
-|Authorized |
 
-|Function         |Library   | Mandatory |Component      | Used for:  |
+| Authorized Function |Library   | Mandatory |Component      | Used for:  |
 |-----------------|----------|-----------|---------------|------------| 
 |MGCRE            | LOADAUT  | Yes       | Daemon        | Starting servers by the daemon
 |RACROUTE         | LOUDAUT  | Yes       | Daemon        | Authentication of credentials
-|RACROUTE         | LOAD     | No        | Impersonation | Used when a reusable server
-|                 |          |           |               | needs to impersonate different
-|                 |          |           |               | users.
-|MCSOPER, MGCRE   | LOAD     | No        | IMS CDC       | Used to set up automatic
-|                 |          |           |               | syncpoints with IMS CDC
-|IFI functions    | LOAD     | No        | DB2 CDC       | Using the DB2
-|                 |          |           |               | instrumentation facility 
-|                 |          |           |               | requires authorization.
+|RACROUTE         | LOAD     | No        | Impersonation | Used when a reusable server needs to impersonate different users.
+|MCSOPER, MGCRE   | LOAD     | No        | IMS CDC       | Used to set up automatic syncpoints with IMS CDC
+|IFI functions    | LOAD     | No        | DB2 CDC       | Using the DB2 instrumentation facility requires authorization.
 |RRS              | LOAD     | No        | 2PC           | Used when setting up two-phase commit.
 
 Setting 2-Phase Commit
@@ -1003,10 +987,8 @@ NavigDEF.
 
 The worspaceDEF server environment file has the following format:
 
-&lt;ENVIRONMENT&gt;
-
-SUBSYSTEM=paramvalue1
-
+&lt;ENVIRONMENT&gt;  
+SUBSYSTEM=paramvalue1  
 PLAN=paramvalue2
 
 Setting Up Security
@@ -1069,11 +1051,9 @@ All the libraries in the STEPLIB must be APF-authorized. Grant DB2
 DISPLAY GROUP authorization to the ATTSRVR started task. Issue the
 following commands to the owner of the ATTSRVR started task:
 
-GRANT TRACE(STAT)
-
-GRANT TRACE(MON)
-
-GRANT MONITOR2
+GRANT TRACE(STAT)  
+GRANT TRACE(MON)  
+GRANT MONITOR2  
 
 The owner of the ATTSRVR strarted task must have privileges in DB2 to
 run offline. Issue the following command:
@@ -1092,8 +1072,7 @@ as USER.PROCLIB).
 
 For example, edit ATTSRVR to add the following lines:
 
-// DD DSN=&cicspfx.SDFHEXCI,
-
+// DD DSN=&cicspfx.SDFHEXCI,  
 // DISP=SHR
 
 Where &cicspfx is the CICS system prefix (CICSTS13.CICS for example) and
@@ -1103,10 +1082,8 @@ NAVROOT is the high-level qualifier where Attunity Server is installed.
 include the CICS EXCI load library name to the TASKLIB. For example, add
 the following lines:
 
-ALLOCATE DDNAME(TASKLIB) DA('NAVROOT.LOAD'
-
-'&cicspfx.SDFHEXCI' 'ADA622.LOAD'
-
+ALLOCATE DDNAME(TASKLIB) DA('NAVROOT.LOAD'  
+'&cicspfx.SDFHEXCI' 'ADA622.LOAD'  
 'ISP.SISPLOAD') SHR
 
 Where &cicspfx is the CICS system prefix (CICSTS13.CICS for example)
@@ -1118,6 +1095,7 @@ Software Requirements.
 
 4\. AIS provides a VTAM netname, ATYCLIEN, for the specific connection
 used by EXCI (and MRO) to relay program calls to the CICS target system.
+
 Set up ATYCLIEN as follows:
 
 Use the JCL in the NAVROOT.USERLIB(CICSCONF) member to submit the
@@ -1134,34 +1112,23 @@ online using the CEDA facility.
 Setting Up Attunity Server to Work with IMS/TM
 ==============================================
 
-In order to execute an IMS transaction with Attunity Server, you need to
-set OTMA as described below.
+In order to execute an IMS transaction with Attunity Server, you need to set OTMA as described below.
 
 ### To set OTMA to work with Attunity Server
 
-1\. Install OTMA with OTMA C/I where IMS resides, since OTMA is not
+1\. Install OTMA with OTMA C/I where IMS resides, since OTMA is not automatically installed using the IMS INSTALL/IVP Dialog.
 
-automatically installed using the IMS INSTALL/IVP Dialog.
+2\. In the IMS system definition, set the startup parameter in the IMS procedure to OTMA=Yes.
 
-2\. In the IMS system definition, set the startup parameter in the IMS
-procedure to OTMA=Yes.
-
-In addition, set additional OTMA-related parameters such as GRNAME= for
-the XCF group name, and OTMANM= for the IMS member name in that XCF
-group, as in the following example:
+In addition, set additional OTMA-related parameters such as GRNAME= for the XCF group name, and OTMANM= for the IMS member name in that XCF group, as in the following example:
 
 EDIT IMS.PROCLIB(DFSPBIV1) - 01.03
 
-command ===&gt;
-
-000082 AOIS =,
-
-000083 GRNAME=IMSATT01,
-
-000084 OTMA=YES,
-
-000085 MAXPST=
-
+command ===&gt;  
+000082 AOIS =,  
+000083 GRNAME=IMSATT01,  
+000084 OTMA=YES,  
+000085 MAXPST=  
 000086 OTMANM=
 
 3\. Start the OTMA Callable Interface (C/I).
@@ -1198,29 +1165,18 @@ NOPREF /\*NO PREFERRED STORAGE FRAMES \*/
 
 6\. Edit and submit the following JCL procedure to run DFSYSVI0:
 
-//OTMAINIT PROC RGN=3000K,SOUT=A,
-
-/PARM1=
-
-//\*
-
-//IEFPROC EXEC PGM=DFSYSVI0,
-
-//REGION=&RGN
-
-//\*
-
-//STEPLIB DD DISP=SHR,UNIT=SYSDA,
-
-//DSN=IMSVS.RESLIB
-
-//\*
-
-//SYSPRINT DD SYSOUT=&SOUT
-
-//SYSUDUMP DD SYSOUT=&SOUT
-
-//\*
+//OTMAINIT PROC RGN=3000K,SOUT=A,  
+/PARM1=  
+//\*  
+//IEFPROC EXEC PGM=DFSYSVI0,  
+//REGION=&RGN  
+//\*  
+//STEPLIB DD DISP=SHR,UNIT=SYSDA,  
+//DSN=IMSVS.RESLIB  
+//\*  
+//SYSPRINT DD SYSOUT=&SOUT  
+//SYSUDUMP DD SYSOUT=&SOUT  
+//\*  
 
 7\. Run DFSYSVI0 after the IPL, to initialize OTMA C/I.
 
@@ -1232,18 +1188,14 @@ NAVROOT.USERLIB(NVIMSCMD) the following remove the comment marks (/\*)
 from the following:
 
 /\* "ALLOCATE DDNAME(IEFRDER) DA('JOHNW.AS5120R."USERID()".TMP.IMSLOG')
-NEW \*/
-
-/\* DELETE SPACE(1,1) CYL \*/
-
+NEW \*/  
+/\* DELETE SPACE(1,1) CYL \*/   
 /\* BLKSIZE(1920) LRECL(1916) RECFM(U) REUSE" \*/
 
 The lines should look like the following:
 
-"ALLOCATE DDNAME(IEFRDER) DA('JOHNW.AS5120R."USERID()".TMP.IMSLOG') NEW
-
-DELETE SPACE(1,1) CYL \*/
-
+"ALLOCATE DDNAME(IEFRDER) DA('JOHNW.AS5120R."USERID()".TMP.IMSLOG') NEW  
+DELETE SPACE(1,1) CYL \*/  
 BLKSIZE(1920) LRECL(1916) RECFM(U) REUSE"
 
 Setting Up Attunity Server for Reentrancy
@@ -1270,9 +1222,7 @@ the following to the STEPLIB list:
 // DD DSN=apf\_library,DISP=SHR
 
 Where apf\_library is the APF-authorized library outside the LPA where
-the
-
-ATYSCVW member was moved.
+the ATYSCVW member was moved.
 
 Setting Up Attunity Server to Access DB2 CLI
 --------------------------------------------
@@ -1285,20 +1235,14 @@ The AIS DB2 CLI driver uses an ODBCINI file. During installation of
 Attunity Server, an ODBCINI file is defined as a member in
 NAVROOT.USERLIB.
 
-The ODBCINI file is similar to the following:
+The ODBCINI file is similar to the following:  
 
-; This is a comment line...
-
-; Example COMMON odbcini
-
-\[COMMON\]
-
-MVSDEFAULTSSID=DSN1
-
-; Example SUBSYSTEM odbcini for DSN1 subsystem \[DSN1\]
-
-MVSATTACHTYPE=CAF
-
+; This is a comment line...  
+; Example COMMON odbcini  
+\[COMMON\]  
+MVSDEFAULTSSID=DSN1  
+; Example SUBSYSTEM odbcini for DSN1 subsystem \[DSN1\]  
+MVSATTACHTYPE=CAF  
 PLANNAME=DSNACLI
 
 The PLANNAME value is the default DB2 Calling Level Interface (CLI) plan
@@ -1313,9 +1257,9 @@ the IBM ODBC
 
 Guide and Reference.
 
-Note: The AUTOCOMMIT initialization parameter is set automatically by
-Attunity Server at runtime, and thus should not be set in the ODBCINI
-file.
+>  Note: The AUTOCOMMIT initialization parameter is set automatically by
+>  Attunity Server at runtime, and thus should not be set in the ODBCINI
+>  file.
 
 You must bind to the plan specified in the PLANNAME parameter. The bind
 to the plan, check that the job DSNxxx.SDSNSAMP(DSNTIJCL) includes the
@@ -1350,7 +1294,7 @@ Setting Up Attunity Server to Access IMS/DB
 In the NVIMSSRV, NVIMSSQL, NVIMSCMD jobs that call IMS, add DD cards for
 every dataset referenced by one of the DBDs for the PSB.
 
-Note: You cannot run multiple versions of NVIMSCMD in the same session
+>  Note: You cannot run multiple versions of NVIMSCMD in the same session
 using split screen.
 
 Example 3–1 DD Card
@@ -1359,23 +1303,18 @@ The following DD card can be specified when one of the DBD cards uses
 the DD card NAVDD. Note the other cards, which are built based on the
 entries specified for IMS during installation.
 
-"ALLOCATE DDNAME(IMS) DA('ATTUNITY.CONNECT.PSBLIB'
-'ATTUNITY.CONNECT.DBDLIB') SHR" – location of IMS libraries"ALLOCATE
-DDNAME(DFSVSAMP) DA('IMS.PROCLIB(DFSVSMDB)') SHR" – VSAM index
-file"ALLOCATE DDNAME(PROCLIB) DA('IMS.PROCLIB') SHR"
-
+"ALLOCATE DDNAME(IMS) DA('ATTUNITY.CONNECT.PSBLIB'  
+'ATTUNITY.CONNECT.DBDLIB') SHR" – location of IMS libraries"ALLOCATE  
+DDNAME(DFSVSAMP) DA('IMS.PROCLIB(DFSVSMDB)') SHR" – VSAM index  
+file"ALLOCATE DDNAME(PROCLIB) DA('IMS.PROCLIB') SHR"  
 "ALLOCATE DDNAME(NAVDD) DA('ATTUNITY.IMS.DATA.MYDS') SHR" – DD card for
-data of
-
-the DBD"ALLOCATE DDNAME(IEFRDER) DA('ATTUNITY.CONNECT.TMP.IMSLOG') NEW
-
-DELETE SPACE(1,1) CYL
-
-BLKSIZE(1920) LRECL(1916) RECFM(U) REUSE" – IMS log"CALL
-
+data of  
+the DBD"ALLOCATE DDNAME(IEFRDER) DA('ATTUNITY.CONNECT.TMP.IMSLOG') NEW  
+DELETE SPACE(1,1) CYL  
+BLKSIZE(1920) LRECL(1916) RECFM(U) REUSE" – IMS log"CALL  
 'IMS.RESLIB(DFSRRC00)' 'DLI,NAVUTIL,NAVPSB'" – PSB name for this call
 
-Note: This DD card is appropriate when using HIDAM.
+>  Note: This DD card is appropriate when using HIDAM.
 
 For details about setting up the daemon to work with IMS/DB, see the AIS
 User Guide and Reference.
@@ -1383,11 +1322,10 @@ User Guide and Reference.
 In the security manager, define NVIMSSRV with a started task class and a
 general profile that enables the following:
 
-Access to an Open z/OS segment that defines access to TCP/IP OE sockets.
+-  Access to an Open z/OS segment that defines access to TCP/IP OE sockets.
+-  Access to read, write, allocate and delete for datasets under NAVROOT.
 
-Access to read, write, allocate and delete for datasets under NAVROOT.
-
-Note: The above is phrased specifically for RACF, although the same
+>  Note: The above is phrased specifically for RACF, although the same
 principles also apply to TopSecret and ACF/II.
 
 Setting Up IMS/DB Under IMS/TM
@@ -1402,8 +1340,7 @@ the IMS/DB data.
 2\. Define the transaction to point to the program, using statements such
 as in the following:
 
-APPLCTN PSB=ATYDBDC,SCHDTYP=PARALLEL
-
+APPLCTN PSB=ATYDBDC,SCHDTYP=PARALLEL  
 TRANSACT CODE=ATYIMSTM,PRTY=(7,10,2),INQUIRY=NO,MODE=SNGL,EDIT=ULC
 
 The default transaction name is ATYIMSTM. If you use a different
@@ -1491,10 +1428,8 @@ details.
 
 For example, edit the LOBCICS member as follows:
 
-//CICSDEF PROC CSDDSN='CICS.DFSCSD',
-
-SRCLIB='NAVROOT.NATAGENT.SRCLIB',
-
+//CICSDEF PROC CSDDSN='CICS.DFSCSD',  
+SRCLIB='NAVROOT.NATAGENT.SRCLIB',  
 CICSPRF='CICS.CICS'
 
 After editing the file, save and submit it.
@@ -1506,12 +1441,9 @@ After the definitions have been successfully added (either via DFHCSDUP
 or by manual online definition), logon to CICS and issue the following
 commands to install the resource definitions under CICS:
 
-CEDA INST GROUP(ATYL)
-
-CEMT SET IRC CLOSE
-
-CEDA INST GROUP(ATYI)
-
+CEDA INST GROUP(ATYL)  
+CEMT SET IRC CLOSE  
+CEDA INST GROUP(ATYI)  
 CEMT SET IRC OPEN
 
 Loading and Cataloging the Natural Programs
@@ -1548,12 +1480,9 @@ Server programs and data areas:
 subprograms executed by the Natural agent. Alternatively, move the
 following four catalogued modules to SYSTEM library:
 
--   ATYETA
-
--   ATYNDISP
-
--   ATYNDIS2
-
+-   ATYETA  
+-   ATYNDISP  
+-   ATYNDIS2  
 -   ATYPARMS
 
 Note: The TESTAG01 source subprogram is used to verify a successful
@@ -1623,28 +1552,17 @@ variable to 01.
 
 4\. Submit the job.
 
-The JOBLOG of the batch job should show the following results:
-
-+RESP = 00000000
-
-+RESP2 = 00000000
-
-+ABCODE =
-
-+OPERAND1 = 0128
-
-+OPERAND2 = 0016
-
-+SUM = 00144
-
-+DIFFERENCE = 0112
-
-+PRODUCT = 00002048
-
-+QUOTIENT = 0008
-
-+ERRCODE = 00000000
-
+The JOBLOG of the batch job should show the following results:  
++RESP = 00000000  
++RESP2 = 00000000  
++ABCODE =  
++OPERAND1 = 0128  
++OPERAND2 = 0016  
++SUM = 00144  
++DIFFERENCE = 0112  
++PRODUCT = 00002048  
++QUOTIENT = 0008  
++ERRCODE = 00000000  
 +MESSAGE = TESTAG01 EXECUTED SUCCESSFULLY
 
 ---
