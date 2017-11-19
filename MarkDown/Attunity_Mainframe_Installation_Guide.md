@@ -686,50 +686,50 @@ entry in the Screen column.
 ---
 
   **Screen**                                                                                                                                        |**Response**
-  ------------------------------------------------------------------------------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------
-                                                                      xx                                                                            |zz
-                                                                       xxx                                                                          |zz trying to get formattnig
-  DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |Answer YES to this prompt if you have AIS for IMS/DB already installed.
-                                                                                                                                                    |
-  (YES/NO) \[YES\] :                                                                                                                                |
-                                                                                                                                                    |
-  ENTER DBD LIBRARY NAME \[IMS.DBDLIB\] :                                                                                                           |If you responded YES to working with IMS/DB, then enter the library where database definition (DBD) files are located.
-                                                                                                                                                    |
-  ENTER PSB LIBRARY NAME \[IMS.PSBLIB\] :                                                                                                           |If you responded YES to working with IMS/DB, then enter the library where Program Specification Blocks (PSBs) are located.
-                                                                                                                                                    |
-  ENTER YOUR PSB NAME \[HOSPPSB\] :                                                                                                                 |If you responded YES to working with IMS/DB, then enter the name of the PSB file to use.
-                                                                                                                                                    |
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |If you responded YES to working with IMS/DB, then confirm the entered details.
-                                                                                                                                                    |
-  DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |If you want to access IMS/DB data under CICS, using AIS adapter for IMS/DB, then respond YES.
-                                                                                                                                                    |
-  UNDER CICS (YES/NO) \[NO\] :                                                                                                                      |
-                                                                                                                                                    |
-  ENTER THE CICS EXCI LOAD LIBRARY NAME \[CICSTS13.CICS.SDFHEXCI\] :                                                                                |If you responded YES to working with IMS/DB under CICS, then enter the CICS EXCI load library name only if you do not want the default.
-                                                                                                                                                    |
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |If you responded YES to working with IMS/DB under CICS, then confirm the entered details.
-                                                                                                                                                    |
-  DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH CICS APP ADAPTER (YES/NO) \[YES\] :                                                  |Answer YES to this prompt
-                                                                                                                                                    |
-  ENTER THE CICS EXCI LOAD LIBRARY NAME \[CICSTS13.CICS.SDFHEXCI\] :                                                                                |Enter the CICS EXCI load library name only if you do not want the default.
-                                                                                                                                                    |
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |Confirm the entered details
-                                                                                                                                                    |
-  THE VSAM DRIVER IS INSTALLED AUTOMATICALLY. DO YOU ALSO WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH VSAM UNDER CICS (YES/NO) \[NO\] :   |Answer YES to this prompt if you have AIS for VSAM already installed and you want to access VSAM data under CICS.
-                                                                                                                                                    |
-  ENTER THE CICS EXCI LOAD LIBRARY NAME \[CICSTS13.CICS.SDFHEXCI\] :                                                                                |If you responded YES to working with VSAM under CICS, then enter the CICS EXCI load library name only if you do not want the default.
-                                                                                                                                                    |
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |If you responded YES to working with VSAM under CICS, then confirm the entered details.
-                                                                                                                                                    |
-  ENTER THE ISPF LOAD LIBRARY NAME \[ISP.SISPLOAD\] :                                                                                               |Enter the ISPF load library name only if you do not want the default.
-                                                                                                                                                    |
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |Confirm the entered details
-                                                                                                                                                    |
-  ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\] :                                                                                            |Enter the output class for the Attunity Server output. Assigning a device which is set on HOLD prevents the loss of log information when the Attunity Server started tasks finish (the default is A).
-                                                                                                                                                    |
-  DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                                                                                                 |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.
-                                                                                                                                                    |
-                                                                                                                                                    |If you do not enter a card, then the Attunity Server default card is used.
+ | ------------------------------------------------------------------------------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------
+ |                                                                     xx                                                                            |zz
+ |                                                                      xxx                                                                          |zz trying to get formattnig
+ | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |Answer YES to this prompt if you have AIS for IMS/DB already installed.
+ |                                                                                                                                                   |
+ | (YES/NO) \[YES\] :                                                                                                                                |
+ |                                                                                                                                                   |
+ | ENTER DBD LIBRARY NAME \[IMS.DBDLIB\] :                                                                                                           |If you responded YES to working with IMS/DB, then enter the library where database definition (DBD) files are located.
+ |                                                                                                                                                   |
+ | ENTER PSB LIBRARY NAME \[IMS.PSBLIB\] :                                                                                                           |If you responded YES to working with IMS/DB, then enter the library where Program Specification Blocks (PSBs) are located.
+ |                                                                                                                                                   |
+ | ENTER YOUR PSB NAME \[HOSPPSB\] :                                                                                                                 |If you responded YES to working with IMS/DB, then enter the name of the PSB file to use.
+ |                                                                                                                                                   |
+ | PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |If you responded YES to working with IMS/DB, then confirm the entered details.
+ |                                                                                                                                                   |
+ | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |If you want to access IMS/DB data under CICS, using AIS adapter for IMS/DB, then respond YES.
+ |                                                                                                                                                   |
+ | UNDER CICS (YES/NO) \[NO\] :                                                                                                                      |
+ |                                                                                                                                                   |
+ | ENTER THE CICS EXCI LOAD LIBRARY NAME \[CICSTS13.CICS.SDFHEXCI\] :                                                                                |If you responded YES to working with IMS/DB under CICS, then enter the CICS EXCI load library name only if you do not want the default.
+ |                                                                                                                                                   |
+ | PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |If you responded YES to working with IMS/DB under CICS, then confirm the entered details.
+ |                                                                                                                                                   |
+ | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH CICS APP ADAPTER (YES/NO) \[YES\] :                                                  |Answer YES to this prompt
+ |                                                                                                                                                   |
+ | ENTER THE CICS EXCI LOAD LIBRARY NAME \[CICSTS13.CICS.SDFHEXCI\] :                                                                                |Enter the CICS EXCI load library name only if you do not want the default.
+ |                                                                                                                                                   |
+ | PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |Confirm the entered details
+ |                                                                                                                                                   |
+ | THE VSAM DRIVER IS INSTALLED AUTOMATICALLY. DO YOU ALSO WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH VSAM UNDER CICS (YES/NO) \[NO\] :   |Answer YES to this prompt if you have AIS for VSAM already installed and you want to access VSAM data under CICS.
+ |                                                                                                                                                   |
+ | ENTER THE CICS EXCI LOAD LIBRARY NAME \[CICSTS13.CICS.SDFHEXCI\] :                                                                                |If you responded YES to working with VSAM under CICS, then enter the CICS EXCI load library name only if you do not want the default.
+ |                                                                                                                                                   |
+ | PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |If you responded YES to working with VSAM under CICS, then confirm the entered details.
+ |                                                                                                                                                   |
+ | ENTER THE ISPF LOAD LIBRARY NAME \[ISP.SISPLOAD\] :                                                                                               |Enter the ISPF load library name only if you do not want the default.
+ |                                                                                                                                                   |
+ | PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |Confirm the entered details
+ |                                                                                                                                                   |
+ | ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\] :                                                                                            |Enter the output class for the Attunity Server output. Assigning a device which is set on HOLD prevents the loss of log information when the Attunity Server started tasks finish (the default is A).
+ |                                                                                                                                                   |
+ | DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                                                                                                 |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.
+ |                                                                                                                                                   |
+ |                                                                                                                                                   |If you do not enter a card, then the Attunity Server default card is used.
  
  
  
