@@ -686,9 +686,9 @@ entry in the Screen column.
 ---
 
   **Screen**                                                                                                                                        |**Response**
-  ------------------------------------------------------------------------------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                      xx                                                                              |zz
-                                                                       xxx                                                                             |zz trying to get formattnig
+  ------------------------------------------------------------------------------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------
+                                                                      xx                                                                            |zz
+                                                                       xxx                                                                          |zz trying to get formattnig
   DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |Answer YES to this prompt if you have AIS for IMS/DB already installed.
                                                                                                                                                     |
   (YES/NO) \[YES\] :                                                                                                                                |
@@ -730,9 +730,11 @@ entry in the Screen column.
   DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                                                                                                 |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.
                                                                                                                                                     |
                                                                                                                                                     |If you do not enter a card, then the Attunity Server default card is used.
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
 
----
 
 The installation is completed. All JCL jobs and REXX procedures are
 written to the INSTROOT.USERLIB library. INSTROOT is the high-level
