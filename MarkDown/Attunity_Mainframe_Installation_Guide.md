@@ -687,8 +687,8 @@ entry in the Screen column.
 
   **Screen**                                                                                                                                        |**Response**
   ------------------------------------------------------------------------------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                    |
-                                                                                                                                                    |
+                                                                      xx                                                                              |zz
+                                                                       xxx                                                                             |zz trying to get formattnig
   DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |Answer YES to this prompt if you have AIS for IMS/DB already installed.
                                                                                                                                                     |
   (YES/NO) \[YES\] :                                                                                                                                |
