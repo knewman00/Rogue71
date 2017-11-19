@@ -201,29 +201,23 @@ allocated.
 Perform the following steps to copy the AIS installation kit contents to
 the mainframe:
 
-1\. Extract the compressed file to a folder on your computer.
-
-2\. Perform the transfer using one of the following methods:
+1\. Extract the compressed file to a folder on your computer.  
+2\. Perform the transfer using one of the following methods:  
 
 Method 1:
 
 If you have a standard procedure for file transfer, use it to perform a
 binary transfer of the following files:
 
-ac5340.transmit.kit to '\[HLQ\].transmit.kit'
-
+ac5340.transmit.kit to '\[HLQ\].transmit.kit'  
 ac5340.transmit.load to '\[HLQ\].transmit.load'
 
 Method 2:
 
-a\. Open a Windows command prompt.
-
-b\. Type FTP followed by a space and the name of the z/OS to which you wish to connect. This creates an FTP connection to the mainframe machine. Enter your z/OS userid and password when prompted for them.
-
-c\. Type bin to indicate a binary transfer.
-
-d\. Enter the following command to transfer the data from the .KIT file
-to z/OS:
+a\. Open a Windows command prompt.  
+b\. Type FTP followed by a space and the name of the z/OS to which you wish to connect. This creates an FTP connection to the mainframe machine. Enter your z/OS userid and password when prompted for them.  
+c\. Type bin to indicate a binary transfer.  
+d\. Enter the following command to transfer the data from the .KIT file to z/OS:  
 
 put ac5340.transmit.kit '\[HLQ\].transmit.kit' \[replace\]
 
@@ -281,20 +275,23 @@ Screen column.
 
 Table 2–4 Installation Prepare Job Prompts and Responses
 
- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- | Screen Response                                                            |      vvvvv        
- | ---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ | Screen                                                                     | Response           
+ | ---------------------------------------------------------------------------|-------------------------------------------------------------------------
  | DO YOU WANT TO USE SMS MANAGED STORAGE FOR THIS INSTALLATION Y/N \[N\] :   | If you want to manage the storage using SMS, then answer Y, otherwise answer N.
  | ENTER THE STORCLASS FOR INSTALLATION TEMP DATASETS \[ \] :                 | This prompt is displayed only if SMS is used to manage the installation (you answered Y to the first prompt).
- |                                                                             |Enter the storage class
- | ENTER THE UNIT NAME FOR INSTALLATION TEMP DATASETS \[3390\] :               |If a storage class is not specified, then enter the unit name for temporary datasets used during the installation procedure
- | ENTER THE VOLUME NAME FOR INSTALLATION TEMP DATASETS :                      |This prompt is displayed only if SMS is not used to manage the installation (you answered N to the first prompt).
- |                                                                             |The volume name for temporary datasets used during the installation procedure
- | ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\] :                      |Enter the output class only if you do not want the default class used (the default is A)
- | DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                           |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input. If you do not enter a card, then the Attunity Server default card is used.
- | DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :   |If you want to review the JCL used to install Attunity Server, before it is submitted, then respond M for a manual installation.
- | PLEASE REVIEW AND SUBMIT FOR EXECUTION THE HLQ.TRANSMIT.LIB(INSTJO)         |This prompt is displayed only if a manual installation is
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ |                                                                            | Enter the storage class
+ | ENTER THE UNIT NAME FOR INSTALLATION TEMP DATASETS \[3390\] :              | If a storage class is not specified, then enter the unit name for temporary datasets used during the installation procedure
+ | ENTER THE VOLUME NAME FOR INSTALLATION TEMP DATASETS :                     | This prompt is displayed only if SMS is not used to manage the installation (you answered N to the first prompt).
+ |                                                                            | The volume name for temporary datasets used during the installation procedure
+ | ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\] :                     | Enter the output class only if you do not want the default class used (the default is A)
+ | DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                          | A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input. If you do not enter a card, then the Attunity Server default card is used.
+ | DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :  | If you want to review the JCL used to install Attunity Server, before it is submitted, then respond M for a manual installation.
+ | PLEASE REVIEW AND SUBMIT FOR EXECUTION THE HLQ.TRANSMIT.LIB(INSTJO)        | This prompt is displayed only if a manual installation is
+ 
+ 
+ 
+ 
 
 4\. Verify that all steps on the INSTJO job ended with return code 0.
 
@@ -376,17 +373,10 @@ entry in the Screen column.
 |                                   | answered Y to using DB2. Enter    
 |                                   | the HLQ where DB2 is installed.   
 | ENTER THE DB2 SUBSYSTEM NAME      | Enter the DB2 subsystem.          
-| THE DATABASE DB2 RESIDES ON THIS  | This is a summary of the DB2      
-| MACHINE\                          | questions. Check the summary to   
-| THE DB2 SUBSYSTEM NAME IS :       | be sure all is correct. You can   
-|                                   | select:                           
-| PLEASE CONFIRM (YES/NO/QUIT)      |                                   
-| :YES: :                           | Yes, to use the DB2 database as   
-|                                   | configured                        
-|                                   |                                   
-|                                   | No, to not use the DB2 database   
-|                                   |                                   
-|                                   | Quit, to leave the CUST process   
+| THE DATABASE DB2 RESIDES ON THIS MACHINE\ | This is a summary of the DB2 questions. Check the summary to  be sure all is correct. 
+|                           | 
+| THE DB2 SUBSYSTEM NAME IS :       | You can  select:                           
+| PLEASE CONFIRM (YES/NO/QUIT)   :YES: : | Yes, to use the DB2 database as configured \n  No, to not use the DB2 database \n Quit, to leave the CUST process  
 | DO YOU WANT ATTUNITY SERVER TO    | If you want to use Adabas, then   
 | WORK WITH ADABAS                  | answer Y, otherwise answer N.     
 | ENTER THE ADABAS SVC NUMBER       | This is displayed only if you  answered Y to using Adabas.          
@@ -394,11 +384,11 @@ entry in the Screen column.
 |                                   |                                                                                                                                                                   
 | ENTER THE ADABAS LOAD LIBRARY NAME                                          |Enter the Adabas Load Library name for Adabas on your system.
 | YOUR ADABAS SVC IS:                                                         |This is a summary of the Adabas questions. Check the summary to be sure all is correct. You can select:
-|         xxxXXXXXXXXXXXXXXx                                                  |
+|                                                        |
 | THE ADABAS LOAD LIBRARY NAME IS:                                            |Yes, to use the Adabas database as configured
 |                                                                             |
 | PLEASE CONFIRM (YES/NO/QUIT)                                                |No, to not use the Adabas database
-|                           ZZZZZZZ                                           |
+|                                               |
 |                                                                             |Quit, to leave the CUST process
 |                                                                             |
 | DO YOU WANT ATTUNITY SERVER TO WORK                                         |If you want the server to work with IMS, then answer Y, otherwise answer N.
@@ -687,8 +677,7 @@ entry in the Screen column.
  | **Screen**                                                                                                                                        |**Response**  
  |---------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------
  | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB (YES/NO) \[YES\] :                                         |Answer YES to this prompt if you have AIS for IMS/DB already installed.
- |                                                                                                                                                   |
- |                                                                                                                                                   |
+ |                                                                                                                                                   |   
  | ENTER DBD LIBRARY NAME \[IMS.DBDLIB\] :                                                                                                           |If you responded YES to working with IMS/DB, then enter the library where database definition (DBD) files are located.
  |                                                                                                                                                   |
  | ENTER PSB LIBRARY NAME \[IMS.PSBLIB\] :                                                                                                           |If you responded YES to working with IMS/DB, then enter the library where Program Specification Blocks (PSBs) are located.
@@ -1130,25 +1119,17 @@ command ===&gt;
 initialization program, by editing the SCHEDxx member of the
 SYS1.PARMLIB dataset, and adding the following entry:
 
-PPT PGMNAME(DFSYSVI0) /\*PROGRAM NAME =DFSYSVI0 \*/
-
-CANCEL /\*PROGRAM CAN BE CANCELED \*/
-
-KEY(7) /\*PROTECT KEY ASSIGNED IS 7 \*/
-
-SWAP /\*PROGRAM IS SWAPPABLE \*/
-
-NOPRIV /\*PROGRAM IS NOT PRIVILEGED \*/
-
-DSI /\*REQUIRES DATA SET INTEGRITY \*/
-
-PASS /\*CANNOT BYPASS PASSWORD PROTECTION \*/
-
-SYST /\*PROGRAM IS A SYSTEM TASK \*/
-
-AFF(NONE) /\*NO CPU AFFINITY \*/
-
-NOPREF /\*NO PREFERRED STORAGE FRAMES \*/
+```
+PPT PGMNAME(DFSYSVI0)   /\*PROGRAM NAME =DFSYSVI0 \*/  
+CANCEL    /\*PROGRAM CAN BE CANCELED \*/  
+KEY(7)    /\*PROTECT KEY ASSIGNED IS 7 \*/  
+SWAP      /\*PROGRAM IS SWAPPABLE \*/  
+NOPRIV    /\*PROGRAM IS NOT PRIVILEGED \*/  
+DSI       /\*REQUIRES DATA SET INTEGRITY \*/  
+PASS      /\*CANNOT BYPASS PASSWORD PROTECTION \*/  
+SYST      /\*PROGRAM IS A SYSTEM TASK \*/  
+AFF(NONE) /\*NO CPU AFFINITY \*/  
+NOPREF    /\*NO PREFERRED STORAGE FRAMES \*/  ```
 
 5\. Do one of the following to make the SCHEDxx changes take effect:
 
