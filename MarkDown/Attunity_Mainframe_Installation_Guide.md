@@ -686,9 +686,8 @@ entry in the Screen column.
 
  | **Screen**                                                                                                                                        |**Response**  
  |---------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------
- | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |Answer YES to this prompt if you have AIS for IMS/DB already installed.
+ | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB (YES/NO) \[YES\] :                                         |Answer YES to this prompt if you have AIS for IMS/DB already installed.
  |                                                                                                                                                   |
- | (YES/NO) \[YES\] :                                                                                                                                |
  |                                                                                                                                                   |
  | ENTER DBD LIBRARY NAME \[IMS.DBDLIB\] :                                                                                                           |If you responded YES to working with IMS/DB, then enter the library where database definition (DBD) files are located.
  |                                                                                                                                                   |
@@ -698,9 +697,7 @@ entry in the Screen column.
  |                                                                                                                                                   |
  | PLEASE CONFIRM (YES/NO/QUIT) \[YES\] :                                                                                                            |If you responded YES to working with IMS/DB, then confirm the entered details.
  |                                                                                                                                                   |
- | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB                                                                               |If you want to access IMS/DB data under CICS, using AIS adapter for IMS/DB, then respond YES.
- |                                                                                                                                                   |
- | UNDER CICS (YES/NO) \[NO\] :                                                                                                                      |
+ | DO YOU WANT ATTUNITY CONNECT FOR LEGACY ADAPTER TO WORK WITH IMS/DB UNDER CICS (YES/NO) \[NO\] :                        |If you want to access IMS/DB data under CICS, using AIS adapter for IMS/DB, then respond YES.
  |                                                                                                                                                   |
  | ENTER THE CICS EXCI LOAD LIBRARY NAME \[CICSTS13.CICS.SDFHEXCI\] :                                                                                |If you responded YES to working with IMS/DB under CICS, then enter the CICS EXCI load library name only if you do not want the default.
  |                                                                                                                                                   |
@@ -724,9 +721,7 @@ entry in the Screen column.
  |                                                                                                                                                   |
  | ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\] :                                                                                            |Enter the output class for the Attunity Server output. Assigning a device which is set on HOLD prevents the loss of log information when the Attunity Server started tasks finish (the default is A).
  |                                                                                                                                                   |
- | DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                                                                                                 |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.
- |                                                                                                                                                   |
- |                                                                                                                                                   |If you do not enter a card, then the Attunity Server default card is used.
+ | DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                                                                                                 |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.  If you do not enter a card, then the Attunity Server default card is used.
  
  
  
