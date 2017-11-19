@@ -399,11 +399,11 @@ entry in the Screen column.
 | ENTER THE ADABAS LOAD LIBRARY NAME                                          |Enter the Adabas Load Library name for Adabas on your system.
 | --------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------------------
 | YOUR ADABAS SVC IS:                                                         |This is a summary of the Adabas questions. Check the summary to be sure all is correct. You can select:
-|                                                                             |
+|         xxxXXXXXXXXXXXXXXx                                                  |
 | THE ADABAS LOAD LIBRARY NAME IS:                                            |Yes, to use the Adabas database as configured
 |                                                                             |
 | PLEASE CONFIRM (YES/NO/QUIT)                                                |No, to not use the Adabas database
-|                                                                             |
+|                           ZZZZZZZ                                           |
 |                                                                             |Quit, to leave the CUST process
 |                                                                             |
 | DO YOU WANT ATTUNITY SERVER TO WORK                                         |If you want the server to work with IMS, then answer Y, otherwise answer N.
