@@ -370,34 +370,30 @@ entry in the Screen column.
 ***Table 2–6 Installation Prompts and Responses***
 
 
-| Screen                            | Response                          |
-|-----------------------------------|-----------------------------------|
-| DO YOU WANT ATTUNITY SERVER TO WORK WITH DB2     | If you want to use DB2, then answer Y, otherwise answer N      |
-| ENTER THE DB2 HLQ                 | This is displayed only if you     |
-|                                   | answered Y to using DB2. Enter    |
-|                                   | the HLQ where DB2 is installed.   |
-| ENTER THE DB2 SUBSYSTEM NAME      | Enter the DB2 subsystem.          |
-| THE DATABASE DB2 RESIDES ON THIS  | This is a summary of the DB2      |
-| MACHINE\                          | questions. Check the summary to   |
-| THE DB2 SUBSYSTEM NAME IS :       | be sure all is correct. You can   |
-|                                   | select:                           |
-| PLEASE CONFIRM (YES/NO/QUIT)      |                                   |
-| :YES: :                           | Yes, to use the DB2 database as   |
-|                                   | configured                        |
-|                                   |                                   |
-|                                   | No, to not use the DB2 database   |
-|                                   |                                   |
-|                                   | Quit, to leave the CUST process   |
-| DO YOU WANT ATTUNITY SERVER TO    | If you want to use Adabas, then   |
-| WORK WITH ADABAS                  | answer Y, otherwise answer N.     |
-| ENTER THE ADABAS SVC NUMBER       | This is displayed only if you  answered Y to using Adabas.       |   
-|                                   | Enter the Adabas SVC number for   Adabas on your system.            |
-
-
-
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Screen                            | Response                          
+|-----------------------------------|-----------------------------------
+| DO YOU WANT ATTUNITY SERVER TO WORK WITH DB2     | If you want to use DB2, then answer Y, otherwise answer N        
+| ENTER THE DB2 HLQ                 | This is displayed only if you     
+|                                   | answered Y to using DB2. Enter    
+|                                   | the HLQ where DB2 is installed.   
+| ENTER THE DB2 SUBSYSTEM NAME      | Enter the DB2 subsystem.          
+| THE DATABASE DB2 RESIDES ON THIS  | This is a summary of the DB2      
+| MACHINE\                          | questions. Check the summary to   
+| THE DB2 SUBSYSTEM NAME IS :       | be sure all is correct. You can   
+|                                   | select:                           
+| PLEASE CONFIRM (YES/NO/QUIT)      |                                   
+| :YES: :                           | Yes, to use the DB2 database as   
+|                                   | configured                        
+|                                   |                                   
+|                                   | No, to not use the DB2 database   
+|                                   |                                   
+|                                   | Quit, to leave the CUST process   
+| DO YOU WANT ATTUNITY SERVER TO    | If you want to use Adabas, then   
+| WORK WITH ADABAS                  | answer Y, otherwise answer N.     
+| ENTER THE ADABAS SVC NUMBER       | This is displayed only if you  answered Y to using Adabas.          
+|                                   | Enter the Adabas SVC number for   Adabas on your system.          
+|                                   |                                                                                                                                                                   
 | ENTER THE ADABAS LOAD LIBRARY NAME                                          |Enter the Adabas Load Library name for Adabas on your system.
-| --------------------------------------------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------------------
 | YOUR ADABAS SVC IS:                                                         |This is a summary of the Adabas questions. Check the summary to be sure all is correct. You can select:
 |         xxxXXXXXXXXXXXXXXx                                                  |
 | THE ADABAS LOAD LIBRARY NAME IS:                                            |Yes, to use the Adabas database as configured
