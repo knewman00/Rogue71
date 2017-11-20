@@ -276,8 +276,8 @@ Screen column.
 Table 2–4 Installation Prepare Job Prompts and Responses
 
 
- | Screen                                                                     | Response           
- | ---------------------------------------------------------------------------|-------------------------------------------------------------------------
+ | Screen                                                                    | Response           
+ |---------------------------------------------------------------------------|-------------------------------------------------------------------------
  | DO YOU WANT TO USE SMS MANAGED STORAGE FOR THIS INSTALLATION Y/N \[N\] :   | If you want to manage the storage using SMS, then answer Y, otherwise answer N.
  | ENTER THE STORCLASS FOR INSTALLATION TEMP DATASETS \[ \] :                 | This prompt is displayed only if SMS is used to manage the installation (you answered Y to the first prompt).
  |                                                                            | Enter the storage class
@@ -301,53 +301,38 @@ TSO EX '&lt;HLQ&gt;.BUILDKIT.SRC(NAVINST)'
 
 Follow the instructions in the Response column in Table 2–5 for each entry in the Screen column.
 
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  DO YOU WANT TO USE SMS MANAGED STORAGE FOR THIS INSTALLATION Y/N \[N\]:                                                                                                                                                     If you want to manage the storage using SMS, then answer Y, otherwise answer N.
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  THE SOFTWARE WILL BE INSTALLED UNDER THE HIGH LEVEL QUALIFIER THAT YOU WILL CHOOSE.                                                                                                                                         The high-level qualifier for the installation (referred to as INSTROOT throughout this guide)
-
-  ENTER THE HIGH LEVEL QUALIFIER                                                                                                                                                                                              You can use more than one high-level qualifier (such as ACME.DEV.VA10). The total length must be less than or equal to twenty characters. The qualifiers can be the same as the ones used for the installation (step 1).
-                                                                                                                                                                                                                              
-  \["QUALIFIER"\]:                                                                                                                                                                                                            The words transmit and buildkit cannot be used as high-level qualifiers.
-
-  ENTER THE STORCLASS FOR TEMP DATASETS                                                                                                                                                                                       This prompt is displayed only if SMS is used to manage the installation (you answered Y to the first prompt).
-                                                                                                                                                                                                                              
-  \['STORCLASS'\]:                                                                                                                                                                                                            Enter the storage class
-
-  ENTER THE UNIT NAME FOR INSTALLATION                                                                                                                                                                                        The unit name for temporary datasets used during the installation procedure.
-                                                                                                                                                                                                                              
-  TEMP DATASETS \[3390\] :                                                                                                                                                                                                    
-
-  ENTER THE VOLUME NAME FOR INSTALLATION TEMP DATASETS:                                                                                                                                                                       This prompt is displayed only if SMS is not used to manage the installation (you answered N to the first prompt).
-                                                                                                                                                                                                                              
-                                                                                                                                                                                                                              The volume name for temporary datasets used during the installation procedure
-
-                                                                                                                                                                                                                              
-
-                                                                                                                                                              Page 14
-
-  PLEASE CONFIRM (YES/NO/QUIT) \[YES\]:                                                                                                                                                                                       Confirm the entered details
-
-  ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\]:                                                                                                                                                                       Enter the output class for Attunity Server output. Assigning a device which is set on HOLD prevents the loss of log information when the Attunity Server started tasks finish (the default is A).
-
-                                                                                                                                                                                                                              
-
-  ADDING AND UPDATING ATTUNITY CONNECT FOR CICS CONFIGURATION ON THIS MACHINE, FROM A REMOTE ATTUNITY ADMINISTRATION CONSOLE, CAN ONLY BE DONE BY SOMEONE DEFINED AS AN ADMINISTRATOR FOR ATTUNITY CONNECT ON THIS MACHINE.   In order to manage Attunity Server on this computer from Attunity Studio, you need to enter a user account of a user who will have administrative authorization, or press Enter to enable any user to administer Attunity Server on this computer. The administrative rights can be changed from within Attunity Studio after the installation.
-
-  ENTER A VALID USER NAME FOR AN ATTUNITY CONNECT ADMINISTRATOR                                                                                                                                                               
-                                                                                                                                                                                                                              
-  \[ALL\]:                                                                                                                                                                                                                    
-
-  DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                                                                                                                                                                           A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input. If you do not enter a card, then the Attunity Server default card is used.
-
-  DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :                                                                                                                                                   If you want to review the JCL used to install Attunity Server, before it is submitted, then respond M for a manual installation.
-
-  PLEASE REVIEW AND SUBMIT FOR EXECUTION THE DSN1 (INSTJBOR)                                                                                                                                                                  This prompt is displayed only if a manual installation is requested (you answered M to the previous prompt).
-                                                                                                                                                                                                                              
-                                                                                                                                                                                                                              DSN1 is the dataset name where INSTJBOR is located.
-
-                                                                                                                                                                                                                              
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ | Screen                                                                                 | Response           
+ |----------------------------------------------------------------------------------------|-------------------------------------------------------------------------
+ |  DO YOU WANT TO USE SMS MANAGED STORAGE FOR THIS INSTALLATION Y/N \[N\]:               | If you want to manage the storage using SMS, then answer Y, otherwise answer N.
+|  THE SOFTWARE WILL BE INSTALLED UNDER THE HIGH LEVEL QUALIFIER THAT YOU WILL CHOOSE.    |The high-level qualifier for the installation (referred to as INSTROOT throughout this guide)
+|  ENTER THE HIGH LEVEL QUALIFIER     \["QUALIFIER"\]:                                     |You can use more than one high-level qualifier (such as ACME.DEV.VA10). The total length must be less than or equal to twenty characters. The qualifiers can be the same as the ones used for the installation (step 1).  The words transmit and buildkit cannot be used as high-level qualifiers.
+|         |            
+|  ENTER THE STORCLASS FOR TEMP DATASETS |  This prompt is displayed only if SMS is used to manage the installation (you answered Y to the first prompt).
+|  \['STORCLASS'\]:| Enter the storage class
+|
+|  ENTER THE UNIT NAME FOR INSTALLATION| The unit name for temporary datasets used during the installation procedure.
+|  |
+|   TEMP DATASETS \[3390\] :   | -     
+|
+|  ENTER THE VOLUME NAME FOR INSTALLATION TEMP DATASETS:|This prompt is displayed only if SMS is not used to manage the installation (you answered N to the first prompt).
+| |
+|  |The volume name for temporary datasets used during the installation procedure
+|  | -   
+|  PLEASE CONFIRM (YES/NO/QUIT) \[YES\]: | Confirm the entered details
+|  |
+|  ENTER THE OUTPUT CLASS FOR INSTALLATION OUTPUT \[A\]:  |Enter the output class for Attunity Server output. Assigning a device which is set on HOLD prevents the loss of log information when the Attunity Server started tasks finish (the default is A).
+|  |  
+|  ADDING AND UPDATING ATTUNITY CONNECT FOR CICS CONFIGURATION ON THIS MACHINE, FROM A REMOTE ATTUNITY ADMINISTRATION CONSOLE, CAN ONLY BE DONE BY SOMEONE DEFINED AS AN ADMINISTRATOR FOR ATTUNITY CONNECT ON THIS MACHINE.   | In order to manage Attunity Server on this computer from Attunity Studio, you need to enter a user account of a user who will have administrative authorization, or press Enter to enable any user to administer Attunity Server on this computer. The administrative rights can be changed from within Attunity Studio after the installation.
+|  |
+|  ENTER A VALID USER NAME FOR AN ATTUNITY CONNECT ADMINISTRATOR| - 
+|  | - 
+|  \[ALL\]:  | - 
+|  DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]  |  A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input. If you do not enter a card, then the Attunity Server default card is used.
+| |  - 
+|  DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :|  If you want to review the JCL used to install Attunity Server, before it is submitted, then respond M for a manual installation.
+|  |  -  
+|  PLEASE REVIEW AND SUBMIT FOR EXECUTION THE DSN1 (INSTJBOR)  | This prompt is displayed only if a manual installation is requested (you answered M to the previous prompt).
+|  |  - 
 
 The installation is completed. All JCL jobs and REXX procedures are
 written to the INSTROOT.USERLIB library. INSTROOT is the high-level
@@ -392,9 +377,9 @@ entry in the Screen column.
 |                                                                             |Quit, to leave the CUST process
 |                                                                             |
 | DO YOU WANT ATTUNITY SERVER TO WORK                                         |If you want the server to work with IMS, then answer Y, otherwise answer N.
-|                                                                             |
-| WITH IMS                                                                    |
-|                                                                             |
+|                                                                             | - 
+| WITH IMS                                                                    | - 
+|                                                                             | - 
 | ENTER IMS ID \[IMS1\]:                                                      |Enter the IMS subsystem ID
 |                                                                             |
 | ENTER DBD LIBRARY NAME                                                      |Enter the IMS DBD Library name for IMS on your system
@@ -416,13 +401,13 @@ entry in the Screen column.
 | YOUR RESLIB IS:                                                             |No, to not use the IMS database
 |                                                                             |
 | YOUR PROCLIB IS:                                                            |n Quit, to leave the CUST process
-|                                                                             |
-| YOUR PGMLIB IS:                                                             |
-|                                                                             |
-| YOUR PSBNAME IS:                                                            |
-|                                                                             |
-| PLEASE CONFIRM (YES/NO/QUIT) :YES: :                                        |
-|                                                                             |
+|                                                                             | - 
+| YOUR PGMLIB IS:                                                             | - 
+|                                                                             | - 
+| YOUR PSBNAME IS:                                                            | - 
+|                                                                             | - 
+| PLEASE CONFIRM (YES/NO/QUIT) :YES: :                                        | - 
+|                                                                             | - 
 | DO YOU WANT ATTUNITY SERVER TO WORK                                         |f you want the server to work with IMS/DB under CICS,
 |                                                                             |
 | WITH IMS/DB UNDER CICS                                                      |then answer Y, otherwise answer N.
@@ -446,13 +431,12 @@ entry in the Screen column.
 | DO YOU WANT TO USE THE DEFAULT JOB CARD Y/N \[Y\]                           |A job card is displayed. If you want to use a replacement card, then it must be entered as it will appear in the job. You can enter up to six lines. Enter a blank card to end input.
 |                                                                             |
 |                                                                             |If you do not enter a card, then the Attunity Server default card is used.
-|                                                                             |
+|                                                                             | 
 | DO YOU WANT TO PERFORM A MANUAL (M) OR AUTOMATIC (A) INSTALLATION \[A\] :   |It is recommended that you choose automatic, which is the default.
-|                                                                             |
-|                                                                             |
- 
- 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                                                             | - 
+
+
+-----------------------------------------------------------------------------------------
 
 Postinstallation Instructions
 -----------------------------
