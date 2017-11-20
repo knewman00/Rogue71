@@ -1129,7 +1129,8 @@ DSI       /\*REQUIRES DATA SET INTEGRITY \*/
 PASS      /\*CANNOT BYPASS PASSWORD PROTECTION \*/  
 SYST      /\*PROGRAM IS A SYSTEM TASK \*/  
 AFF(NONE) /\*NO CPU AFFINITY \*/  
-NOPREF    /\*NO PREFERRED STORAGE FRAMES \*/  ```
+NOPREF    /\*NO PREFERRED STORAGE FRAMES \*/  
+```
 
 5\. Do one of the following to make the SCHEDxx changes take effect:
 
