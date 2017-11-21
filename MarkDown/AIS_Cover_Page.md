@@ -7,7 +7,7 @@
 
 
 
-| ![alt text](media/﻿Attunity_Cover_Page.png?raw=true)                                   |
+| ![Alt text](./media/﻿Attunity_Cover_Page.png?raw=true)                                   |
 |-------------------------------------------------------------------------------|
 
   Installation Guide for Mainframe Systems
